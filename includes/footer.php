@@ -27,14 +27,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3">
-                        <a href="index.html" class="footer-logo">
-                            <img src="images/footer-logo.png" alt="footer logo">
+                        <a class="navbar-brand" href="index.php">
+                            <img src="images/brand-logo.png" alt="Webon Tech Hub Logo" class="img-fluid" style="width: 150px; height: auto;">
                         </a>
 
                         <ul class="social-icons">
+
                             <li>
-                                <a href="http://www.behance.net/" target="_blank" rel="noopener">
-                                    <i class="fab fa-behance"></i>
+                                <a href="facebook.com/Webontechhub" target="_blank" rel="noopener">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="http://linkedin.com/" target="_blank" rel="noopener">
+                                    <i class="fab fa-linkedin"></i>
                                 </a>
                             </li>
                             <li>
@@ -43,20 +50,11 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="http://plus.google.com/discover" target="_blank" rel="noopener">
+                                <a href="https://www.google.com/search?q=Webon+Tech+Hub&oq=&gs_lcrp=EgZjaHJvbWUqBggCEEUYOzIGCAAQRRg5MgYIARAjGCcyBggCEEUYOzIGCAMQRRg8MgYIBBBFGDwyBggFEEUYPDIGCAYQRRg9MgYIBxBFGEHSAQg3MzY0ajBqMagCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener">
                                     <i class="fab fa-google-plus-g"></i>
                                 </a>
                             </li>
-                            <li>
-                                <a href="http://dribbble.com/" target="_blank" rel="noopener">
-                                    <i class="fab fa-dribbble"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://youtube.com/" target="_blank" rel="noopener">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </li>
+                            
                         </ul>
                         <!-- End of .social-icons -->
                     </div>
@@ -67,22 +65,23 @@
                             <h5>Services</h5>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="logo-and-branding.html">Logo &amp; Branding</a>
+                                    <a href="logo-and-branding.php">Software Development</a>
                                 </li>
                                 <li>
-                                    <a href="pay-per-click.html">Pay-Per-Click</a>
+                                    <a href="pay-per-click.php">Website Development</a>
                                 </li>
                                 <li>
-                                    <a href="website-design.html">Website Design</a>
+                                    <a href="mobile-app-development.php">Mobile App Design</a>
                                 </li>
                                 <li>
-                                    <a href="mobile-app-development.html">Mobile App Design</a>
+                                    <a href="website-design.php">Website Design</a>
+                                    
                                 </li>
                                 <li>
-                                    <a href="search-engine-optimization.html">Search Engine Optimization </a>
+                                    <a href="search-engine-optimization.php">Search Engine Optimization </a>
                                 </li>
                                 <li>
-                                    <a href="social-media-marketing.html">Social Media Marketing</a>
+                                    <a href="social-media-marketing.php">Social Media Marketing</a>
                                 </li>
                             </ul>
                         </nav>
@@ -94,13 +93,13 @@
                             <h5>Support</h5>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="contact.php">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="privacy-policy.html">Privacy Policy</a>
+                                    <a href="privacy-policy.php">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                                    <a href="terms-and-conditions.php">Terms &amp; Conditions</a>
                                 </li>
                             </ul>
                         </nav>
@@ -112,19 +111,19 @@
                             <h5>Resources</h5>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="portfolio.html">Portfolio</a>
+                                    <a href="portfolio.php">Portfolio</a>
                                 </li>
                                 <li>
-                                    <a href="case-studies.html">Case Studies</a>
+                                    <a href="case-studies.php">Case Studies</a>
                                 </li>
                                 <li>
-                                    <a href="about-us.html">About</a>
+                                    <a href="about-us.php">About</a>
                                 </li>
                                 <li>
-                                    <a href="team.html">Team</a>
+                                    <a href="team.php">Team</a>
                                 </li>
                                 <li>
-                                    <a href="blog.html">Blog</a>
+                                    <a href="blog.php">Blog</a>
                                 </li>
                             </ul>
                         </nav>
@@ -139,10 +138,12 @@
 
         <div class="footer-bottom">
             <div class="container">
-                <p class="text-center">&copy; 2022. All rights reserved by Your
-                    <a href="http://axilweb.com/" target="_blank">Company LLC</a>.</p>
+                <p class="text-center">&copy; <?php echo date("Y"); ?> All rights reserved
+                    <a href="#" target="_blank">Webon Tech Hub</a>.</p>
             </div>
             <!-- End of .container -->
         </div>
         <!-- End of .footer-content -->
     </footer>
+
+    

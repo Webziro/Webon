@@ -19,16 +19,13 @@
                             Services
                         </a>
                         <div class="custom-dropdown-menu">
-                            <a class="dropdown-item" href="website-design.php">Website Design</a>
-                            <a class="dropdown-item" href="logo-and-branding.php">Logo &amp; Branding</a>
+                            <a class="dropdown-item" href="website-design.php">Software Develoment</a>
+                            <a class="dropdown-item" href="website-design.php">Website Develpment</a>
                             <a class="dropdown-item" href="mobile-app-development.php">Mobile App Design</a>
                             <a class="dropdown-item" href="search-engine-optimization.php">Search Engine Optimization</a>
-                            <a class="dropdown-item" href="pay-per-click.php">Pay-Per-Click</a>
+                            <a class="dropdown-item" href="logo-and-branding.php">Logo &amp; Branding</a>
                             <a class="dropdown-item" href="social-media-marketing.php">Social Media Marketing</a>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pricing.php">Pricing</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="portfolio.php">Portfolio</a>
@@ -39,9 +36,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about-us.php">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="team.php">Team</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="blog.php">Blog</a>
                     </li>

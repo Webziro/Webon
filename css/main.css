@@ -194,6 +194,7 @@ Date Created: July 16, 2018
   margin-left: auto !important;
 }
 
+
 @media only screen and (min-width: 768px) {
   .ml-md-auto {
     margin-left: auto !important;
@@ -1608,7 +1609,8 @@ textarea:focus {
   font-weight: 500;
 }
 .navbar-nav .nav-item .nav-link:not(.custom-btn):hover, .navbar-nav .nav-item .nav-link:not(.custom-btn).active {
-  color: #172b43;
+  color: #172b43; 
+  /* color: #fff; */
 }
 
 .navbar-nav .nav-item .nav-link {

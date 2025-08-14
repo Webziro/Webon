@@ -66,12 +66,7 @@
     ?>
     <!-- End of .latest-news -->
 
-    <!-- Newsletter starts
-    ======================================= -->
-    <?php
-        include 'includes/newsletter.php';
-    ?>
-    <!-- End of .newsletter -->
+   
 
     <!-- Footer starts
     ======================================= -->
@@ -81,9 +76,9 @@
     <!-- End of footer -->
 
     <!-- Featured-designs modal -->
-    <?php
-        include 'includes/featured-modal.php';
-    ?>
+    
+        <!-- include 'includes/featured-modal.php'; -->
+    
     <!-- End of .modal -->
 
     <!-- Get a quote Modal Starts -->
