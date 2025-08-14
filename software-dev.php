@@ -44,7 +44,7 @@
     ======================================= -->
         <div class="inner-page-banner">
             <div class="container text-center">
-                <h1>Mobile App Development</h1>
+                <h1>Software Development</h1>
                 <p>You want to build high-quality software that meets your business needs?</p>
             </div>
             <!-- End of .container -->
@@ -70,12 +70,11 @@
             <div class="container">
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6">
-                        <h2>Mobile App Development</h2>
-                        <p>
-                            Whether you need a native app for iOS or Android, or a cross-platform solution, 
-                            we have the expertise to deliver a product that exceeds your expectations.</p>
-                        <p>Our mobile app development process includes:</p>
-                        <p>
+                        <h2>Software Development</h2>
+                        <p>We specialize in creating custom software solutions that are tailored to 
+                            your specific business needs. Our team of experienced developers 
+                            will work with you to understand your requirements and deliver a 
+                            solution that meets your expectations.
                         </p>
                         </p>
                         <ul class="common-list-items">
@@ -109,9 +108,8 @@
         <section class="our-process section-padding">
             <div class="container">
                 <h2 class="text-center">Our Process</h2>
-                <p class="section-subheading text-center">We build high-quality mobile apps that are tailored to your business needs. 
-                        <br>    Our team of experts  specializes in  creating custom mobile applications <br> 
-                            that are user-friendly, scalable, and secure. </p>
+                <p class="section-subheading text-center">A greate software starts with proper planning. From wire-framing to
+                    <br>designing, down to the actual product and deploying, we do it all.</p>
 
                 <div class="service-process-tab">
                     <ul class="nav nav-tabs service-tab-nav" id="service-tab-nav" role="tablist">

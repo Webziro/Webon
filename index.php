@@ -76,9 +76,9 @@
     <!-- End of footer -->
 
     <!-- Featured-designs modal -->
-    
-        <!-- include 'includes/featured-modal.php'; -->
-    
+    <?php
+        include 'includes/featured-modal.php';
+    ?>
     <!-- End of .modal -->
 
     <!-- Get a quote Modal Starts -->

@@ -45,13 +45,13 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100 img-fluid" src="images/featured-projects/modal-img-1.jpg" alt="First slide">
+                                        <img class="d-block w-100 img-fluid" src="images/featured-projects/featured-project-12.jpg" alt="Webon Tech Hub First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100 img-fluid" src="images/featured-projects/modal-img-1.jpg" alt="Second slide">
+                                        <img class="d-block w-100 img-fluid" src="images/featured-projects/mobile-app.jpg" alt=" Webon Tech Hub Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100 img-fluid" src="images/featured-projects/modal-img-1.jpg" alt="Third slide">
+                                        <img class="d-block w-100 img-fluid" src="images/featured-projects/ecomm.jpg" alt="Webon Tech Hub Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#featured-project-carousel" role="button" data-bs-slide="prev">
@@ -70,12 +70,13 @@
                         <div class="col-lg-6">
                             <div class="text-content">
                                 <h3>
-                                    <span>Featured - Design</span> Second Language Website</h3>
-                                <p>Donec mattis, augue condimentum varius vestibulum, magna lorem placerat ipsum, faucibus porta
-                                    libero ipsum ut lorem. Morbi sed purus interdum.</p>
-                                <p>Ut porttitor odio eget mauris rutrum, a vehicula turpis llamcorper. Quisque iaculis leo non
-                                    eleifend pretium. Nunc ullamcorper scelerisque purus semper. </p>
-                                <a href="#" class="custom-btn btn-big grad-style-ef">LAUNCH WEBSITE</a>
+                                    <span></span>Transform your Business in 30 days</h3>
+                                <p>
+                                    Transform your online presence with our custom-built application that captivate audience
+                                    and drive real results within a short period and on tight budget. Speak to us today 
+                                
+                                </p>
+                                <a href="#" class="custom-btn btn-big grad-style-ef">TALK TO US</a>
                             </div>
                             <!-- End of .text-content -->
                         </div>

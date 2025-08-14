@@ -44,8 +44,9 @@
     ======================================= -->
         <div class="inner-page-banner">
             <div class="container text-center">
-                <h1>Mobile App Development</h1>
-                <p>You want to build high-quality software that meets your business needs?</p>
+                <h1>Website Development</h1>
+                <p>Weather it is a landing page, Ecommerce website, or a complex web 
+                    application, we have got you covered.</p>
             </div>
             <!-- End of .container -->
         </div>
@@ -70,21 +71,20 @@
             <div class="container">
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6">
-                        <h2>Mobile App Development</h2>
-                        <p>
-                            Whether you need a native app for iOS or Android, or a cross-platform solution, 
-                            we have the expertise to deliver a product that exceeds your expectations.</p>
-                        <p>Our mobile app development process includes:</p>
-                        <p>
+                        <h2>Website Development</h2>
+                        <p>  
+                            We build websites that are not only visually appealing 
+                            but also functional and user-friendly. Our team of experienced 
+                            developers will work with you to create a website that meets your specific needs and goals.</p>
                         </p>
                         </p>
                         <ul class="common-list-items">
                             <li>
-                                <i class="ml-tec-44-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop"></i>Software compartible and responsive for all platforms</li>
+                                <i class="ml-tec-44-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop"></i>Stunning website built to scale and adaptive all platforms</li>
                             <li>
                                 <i class="ml-tec-47-disc-device-plug-computer-desktop-monitor-laptop"></i> Beautiful and modern design that drives growth and increase in ROI.</li>
                             <li>
-                                <i class="ml-tec-43-computer-desktop-monitor-laptop"></i>Secured Apps with advanced features.</li>
+                                <i class="ml-tec-43-computer-desktop-monitor-laptop"></i>Website security and performance optimization.</li>
                         </ul>
                         <a href="#" class="text-only-btn">Book a Call 
                                         <i class="ml-symone-2-arrow-left-right-up-down-increase-decrease"></i>
@@ -94,7 +94,7 @@
                     <!-- End of .col-lg-6 -->
 
                     <div class="col-lg-6 text-lg-right">
-                        <img src="images/services/web-design.jpg" alt="Webon Tech Hub Software Development description image" class="img-fluid">
+                        <img src="images/services/web-dev.jpg" alt="Webon Tech Hub Software Development description image" class="img-fluid">
                     </div>
                     <!-- End of .col-lg-6 -->
                 </div>
@@ -109,9 +109,9 @@
         <section class="our-process section-padding">
             <div class="container">
                 <h2 class="text-center">Our Process</h2>
-                <p class="section-subheading text-center">We build high-quality mobile apps that are tailored to your business needs. 
-                        <br>    Our team of experts  specializes in  creating custom mobile applications <br> 
-                            that are user-friendly, scalable, and secure. </p>
+                <p class="section-subheading text-center">Launch your products online.  
+                    Our team of experts can plan your website <br>
+                    development process effectively, from design to deployment.</p>
 
                 <div class="service-process-tab">
                     <ul class="nav nav-tabs service-tab-nav" id="service-tab-nav" role="tablist">

@@ -19,10 +19,10 @@
                             Services
                         </a>
                         <div class="custom-dropdown-menu">
-                            <a class="dropdown-item" href="website-design.php">Software Develoment</a>
-                            <a class="dropdown-item" href="website-design.php">Website Develpment</a>
+                            <a class="dropdown-item" href="software-dev.php">Software Develoment</a>
+                            <a class="dropdown-item" href="website-dev.php">Website Develpment</a>
                             <a class="dropdown-item" href="mobile-app-development.php">Mobile App Design</a>
-                            <a class="dropdown-item" href="search-engine-optimization.php">Search Engine Optimization</a>
+                            <a class="dropdown-item" href="training.php">Training</a>
                             <a class="dropdown-item" href="logo-and-branding.php">Logo &amp; Branding</a>
                             <a class="dropdown-item" href="social-media-marketing.php">Social Media Marketing</a>
                         </div>

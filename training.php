@@ -44,8 +44,9 @@
     ======================================= -->
         <div class="inner-page-banner">
             <div class="container text-center">
-                <h1>Mobile App Development</h1>
-                <p>You want to build high-quality software that meets your business needs?</p>
+                <h1>Learn to Code</h1>
+                <p>Become a proficient Developer and a problem solver with our comprehensive
+                     training programs designed for all skill and age levels.</p>
             </div>
             <!-- End of .container -->
         </div>
@@ -70,21 +71,17 @@
             <div class="container">
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6">
-                        <h2>Mobile App Development</h2>
-                        <p>
-                            Whether you need a native app for iOS or Android, or a cross-platform solution, 
-                            we have the expertise to deliver a product that exceeds your expectations.</p>
-                        <p>Our mobile app development process includes:</p>
-                        <p>
-                        </p>
-                        </p>
+                        <h2>Software Development Training</h2>
+                        <p>Our Software Development Training program is designed to equip you with the skills needed to excel in the tech industry.</p>
+                        <p>Whether you're a beginner or looking to enhance your skills, we have the right course for you. 
+                            Our training covers a wide range of programs, including: Frontend, Backend, Fullstack, Wordpress, Mobile App Development and more.</p>
                         <ul class="common-list-items">
                             <li>
-                                <i class="ml-tec-44-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop"></i>Software compartible and responsive for all platforms</li>
+                                <i class="ml-tec-44-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop"></i>Flexible learning online and offline classes available</li>
                             <li>
-                                <i class="ml-tec-47-disc-device-plug-computer-desktop-monitor-laptop"></i> Beautiful and modern design that drives growth and increase in ROI.</li>
+                                <i class="ml-tec-47-disc-device-plug-computer-desktop-monitor-laptop"></i>Hands-on projects and real-world scenarios learning</li>
                             <li>
-                                <i class="ml-tec-43-computer-desktop-monitor-laptop"></i>Secured Apps with advanced features.</li>
+                                <i class="ml-tec-43-computer-desktop-monitor-laptop"></i>Expert instructors with industry experience</li>
                         </ul>
                         <a href="#" class="text-only-btn">Book a Call 
                                         <i class="ml-symone-2-arrow-left-right-up-down-increase-decrease"></i>
