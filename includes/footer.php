@@ -65,20 +65,20 @@
                             <h5>Services</h5>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="logo-and-branding.php">Software Development</a>
+                                    <a href="software-development.php">Software Development</a>
                                 </li>
                                 <li>
-                                    <a href="pay-per-click.php">Website Development</a>
+                                    <a href="website-development.php">Website Development</a>
                                 </li>
                                 <li>
                                     <a href="mobile-app-development.php">Mobile App Design</a>
                                 </li>
                                 <li>
-                                    <a href="website-design.php">Website Design</a>
+                                    <a href="training.php">Training</a>
                                     
                                 </li>
                                 <li>
-                                    <a href="search-engine-optimization.php">Search Engine Optimization </a>
+                                    <a href="logo-and-branding.php">Logo and Branding</a>
                                 </li>
                                 <li>
                                     <a href="social-media-marketing.php">Social Media Marketing</a>
@@ -120,10 +120,13 @@
                                     <a href="about-us.php">About</a>
                                 </li>
                                 <li>
-                                    <a href="team.php">Team</a>
+                                    <a href="contact.php">Join Our Team</a>
                                 </li>
                                 <li>
                                     <a href="blog.php">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="press-releases.php">Press Releases</a>
                                 </li>
                             </ul>
                         </nav>

@@ -3,10 +3,9 @@
 <html class="no-js" lang="zxx">
 <!--<![endif]-->
 
-    <?php
-        // Head 
-        include 'includes/head.php'; 
-    ?>
+<?php
+    include 'includes/head.php'; 
+?>
 
 <body class="test-class">
 
@@ -54,9 +53,9 @@
 
     <!-- Partners starts
     ======================================= -->
-    <?php
+    <!-- <?php
         include 'includes/partner.php';
-    ?>
+    ?> -->
     <!-- End of .partners -->
 
     <!-- Latest-news starts

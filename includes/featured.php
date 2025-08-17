@@ -112,7 +112,7 @@
                         </div>
                     </div>
                     <!-- End of .grid -->
-                    <a href="#" class="custom-btn btn-big grad-style-ef btn-full">Talk to Us</a>
+                    <a href="contact.php" class="custom-btn btn-big grad-style-ef btn-full">Talk to Us</a>
                 </div>
                 <!-- End of .template-showcase -->
             </div>
