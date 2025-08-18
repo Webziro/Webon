@@ -1,4 +1,10 @@
-  <section class="latest-news section-padding">
+ <?php
+    // require_once __DIR__ . '/db.php';
+    require_once 'db.php';
+
+ ?>
+ 
+ <section class="latest-news section-padding">
         <div class="container">
             <h2>Latest Blogs</h2>
         </div>
@@ -6,82 +12,31 @@
 
         <div class="news-slider common-slider">
             <div class="carousel-container equalHeightWrapper">
-                <div class="item">
-                    <a href="blog-details.html" class="news-content-block content-block">
-                        <div class="img-container">
-                            <img src="images/news/news-1.jpg" alt="Project image" class="img-fluid">
-                        </div>
-                        <!-- End of .img-container -->
-                        <h5 class="equalHeight">
-                            <span class="content-block__sub-title">5 April, 2018</span>
-                            Digital Marketo Launched Their Website Prototyping App
-                        </h5>
-                    </a>
-                    <!-- End of .featured-content-block -->
-                </div>
-                <!-- End of .item -->
-
-                <div class="item">
-                    <a href="blog-details.html" class="news-content-block content-block">
-                        <div class="img-container">
-                            <img src="images/news/news-2.jpg" alt="Project image" class="img-fluid">
-                        </div>
-                        <!-- End of .img-container -->
-                        <h5 class="equalHeight">
-                            <span class="content-block__sub-title">15 May, 2018</span>
-                            How to Appear in Google’s #1 Page
-                        </h5>
-                    </a>
-                    <!-- End of .featured-content-block -->
-                </div>
-                <!-- End of .item -->
-
-                <div class="item">
-                    <a href="blog-details.html" class="news-content-block content-block">
-                        <div class="img-container">
-                            <img src="images/news/news-3.jpg" alt="Project image" class="img-fluid">
-                        </div>
-                        <!-- End of .img-container -->
-                        <h5 class="equalHeight">
-                            <span class="content-block__sub-title">19 May, 2018</span>
-                            How to Become A Software Engineer?
-                        </h5>
-                    </a>
-                    <!-- End of .featured-content-block -->
-                </div>
-                <!-- End of .item -->
-
-                <div class="item">
-                    <a href="blog-details.html" class="news-content-block content-block">
-                        <div class="img-container">
-                            <img src="images/news/news-4.jpg" alt="Project image" class="img-fluid">
-                        </div>
-                        <!-- End of .img-container -->
-                        <h5 class="equalHeight">
-                            <span class="content-block__sub-title">30 May , 2018</span>
-                            What Does a Web Designer Do?
-                        </h5>
-                    </a>
-                    <!-- End of .featured-content-block -->
-                </div>
-                <!-- End of .item -->
-
-                <div class="item">
-                    <a href="blog-details.html" class="news-content-block content-block">
-                        <div class="img-container">
-                            <img src="images/news/news-5.jpg" alt="Project image" class="img-fluid">
-                        </div>
-                        <!-- End of .img-container -->
-                        <h5 class="equalHeight">
-                            <span class="content-block__sub-title">2 June, 2018</span>
-                            What Do You Do As a Web Developer?
-                        </h5>
-                    </a>
-                    <!-- End of .featured-content-block -->
-                </div>
-                <!-- End of .item -->
+                <?php
+                
+                $stmt = $pdo->query("SELECT * FROM news WHERE status = 'published' ORDER BY created_at DESC");
+                while ($row = $stmt->fetch()) {
+                    $newsUrl = 'blog-details.php?id=' . $row['id'];
+                    $shareUrl = urlencode('http://' . $_SERVER['HTTP_HOST'] . '/blog-details.php?id=' . $row['id']);
+                    echo '<div class="item">';
+                    
+                    echo '<a href="' . $newsUrl . '" class="news-content-block content-block">';
+                    echo '<div class="img-container">';
+                    echo '<img src="' . htmlspecialchars($row['image']) . '" alt="Webon Blog Image" class="img-fluid">';
+                    echo '</div>';
+                    echo '<h5 class="equalHeight">';
+                    echo '<span class="content-block__sub-title">' . date('j M, Y', strtotime($row['created_at'])) . '</span>';
+                    echo htmlspecialchars($row['title']);
+                    echo '</h5>';
+                    echo '</a>';
+                    // View count and share button
+                    echo '<div style="margin-top:8px;">';
+                    echo '<span class="badge bg-secondary">Views: ' . $row['views'] . '</span> ';
+                    echo '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $shareUrl . '" target="_blank" class="btn btn-sm btn-primary" style="margin-left:8px;">Share</a>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                ?>
             </div>
-            <!-- End of .carousel-container -->
         </div>
-        <!-- End of .news-slider -->
     </section>

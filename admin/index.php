@@ -30,6 +30,8 @@ if (!isset($_SESSION['admin'])) {
         <li><a href="featured_add.php">Add Featured Project</a></li>
         <li><a href="featured_list.php">Manage Featured Projects</a></li>
         <!-- Add more links for other features/tables here -->
+        <li><a href="news_add.php">Add News</a></li>
+        <li><a href="news_list.php">Manage News</a></li>
     </ul>
     <form method="post" action="logout.php"><button type="submit">Logout</button></form>
 </div>
