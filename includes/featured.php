@@ -14,105 +14,29 @@
             <div class="container">
                 <h2 class="text-center">Featured Projects</h2>
 
+                <?php
+                    require_once 'includes/featured_fetch.php';
+                ?>
                 <div class="featured-project-showcase text-center">
                     <div class="row equalHeightWrapper">
-
-                        <!-- Items for portfolio currently using 12 items.
-                        More Items can be added. -->
-                       
-                        <!-- End of .grid-item -->
-                        
-                        <!-- End of .grid-item -->
+                        <?php foreach ($featured as $project): ?>
                         <div class="grid-item col-md-6 col-lg-4">
                             <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
                                 <div class="img-container">
-                                    <img src="images/featured-projects/featured-project-9.jpg" alt="Project image" class="img-fluid">
+                                    <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="Project image" class="img-fluid">
                                 </div>
                                 <!-- End of .img-container -->
                                 <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Custom Software</span>
-                                    A Banking App Software
+                                    <?php echo htmlspecialchars($project['title']); ?>
+                                    <span class="content-block__sub-title"><?php echo htmlspecialchars($project['subtitle']); ?></span>
                                 </h5>
                             </a>
                             <!-- End of .featured-content-block -->
                         </div>
-                       
-                        <!-- End of .grid-item -->
-
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured-project-11.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Web Design</span>
-                                    An E-Commerce Website
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .grid-item -->
-
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured-project-12.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Phone App</span>
-                                    Mobile Application
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .grid-item -->
-
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured-project-6.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Brand Identity</span>
-                                    Logo and Branding
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured-project-4.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Marketing</span>
-                                    Social Media Marketing
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-
-                        <div class="grid-item col-md-6 col-lg-4">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured-project-12.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Training</span>
-                                    Training
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                     <!-- End of .grid -->
-                    <a href="contact.php" class="custom-btn btn-big grad-style-ef btn-full">Talk to Us</a>
+                    <a href="qoute.php" class="custom-btn btn-big grad-style-ef btn-full">Talk to Us</a>
                 </div>
                 <!-- End of .template-showcase -->
             </div>
