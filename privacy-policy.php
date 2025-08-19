@@ -44,6 +44,7 @@
         <div class="inner-page-banner">
             <div class="container text-center">
                 <h1>Privacy Policy</h1>
+                <p>Last Updated: 18/9/2024 22:12</p>
             </div>
             <!-- End of .container -->
         </div>
@@ -54,29 +55,38 @@
         <section>
             <div class="container">
                 <div class="privacy-content">
-                    <h2>Name liber tempor cum soluta</h2>
-                    <p>Nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non
-                        habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt
-                        lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur
-                        mutationem consuetudium lectorum.</p>
-                    <h3>Mirum est notare quam</h3>
-                    <p>Littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula
-                        quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-                        in futurum.</p>
-                    <h3>In accumsan vestibulum sem.</h3>
-                    <p>In lacinia velit id nisi imperdiet vehicula. Proin enim erat, finibus id eleifend in, rutrum id odio.
-                        Duis viverra aliquet turpis eget vulputate. Donec porttitor lorem scelerisque, ultricies velit sit
-                        amet.
-                    </p>
-                    <h3>Nobis eleifend option congue nihil</h3>
-                    <p>Imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus
-                        legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius
-                        quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium
-                        lectorum.
-                    </p>
-                    <h3>Littera gothica, quam nunc</h3>
-                    <p>Putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta
-                        decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                    <h2>Privacy Policy</h2>
+                    <p>Webon Tech Hub is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services. This policy complies with the Nigeria Data Protection Regulation (NDPR) and other applicable laws.</p>
+                    <h3>1. Information We Collect</h3>
+                    <ul>
+                        <li><strong>Personal Information:</strong> Name, email address, phone number, company name, and other details you provide via forms or communication.</li>
+                        <li><strong>Usage Data:</strong> Information about your interactions with our website, including IP address, browser type, device information, and pages visited.</li>
+                    </ul>
+                    <h3>2. How We Use Your Information</h3>
+                    <ul>
+                        <li>To provide and improve our services.</li>
+                        <li>To respond to inquiries and communicate with you.</li>
+                        <li>To send marketing and promotional materials (with your consent).</li>
+                        <li>To comply with legal obligations under Nigerian law.</li>
+                    </ul>
+                    <h3>3. Sharing of Information</h3>
+                    <p>We do not sell or rent your personal information. We may share your data with trusted third parties who assist us in operating our website and providing services, subject to confidentiality agreements. We may also disclose information if required by law or to protect our rights.</p>
+                    <h3>4. Data Security</h3>
+                    <p>We implement appropriate technical and organizational measures to protect your personal data from unauthorized access, alteration, disclosure, or destruction.</p>
+                    <h3>5. Your Rights</h3>
+                    <ul>
+                        <li>You have the right to access, correct, or delete your personal information held by us.</li>
+                        <li>You may withdraw consent for marketing communications at any time.</li>
+                        <li>To exercise your rights, please <a href="contact.php">Contact us</a>.</li>
+                    </ul>
+                    <h3>6. Cookies</h3>
+                    <p>Our website may use cookies to enhance your experience. You can set your browser to refuse cookies, but some features may not function properly.</p>
+                    <h3>7. Third-Party Links</h3>
+                    <p>Our site may contain links to external websites. We are not responsible for the privacy practices or content of these sites.</p>
+                    <h3>8. Changes to This Policy</h3>
+                    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page, and your continued use of our site constitutes acceptance of those changes.</p>
+                    <h3>9. Contact Us</h3>
+                    <p>If you have any questions or requests regarding this Privacy Policy or your personal data, please contact us via our contact page or at our official email address <a href="contact.php">Contact us</a></p>
                 </div>
                 <!-- End of .privacy-content -->
             </div>

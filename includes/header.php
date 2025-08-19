@@ -27,7 +27,7 @@
                 <p class="section-subheading">Elevate your online presence with solutions that convert
                     <br> and guarantee real results in 30 days.
                 </p>
-                <a href="portfolio.html" class="custom-btn btn-big grad-style-ef page-scroll">Get Started Today</a>
+                <a href="portfolio.php" class="custom-btn btn-big grad-style-ef page-scroll">See Our Portfolio</a>
             </div>
             <!-- End of .banner-content -->
         </div>

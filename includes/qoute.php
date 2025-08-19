@@ -17,47 +17,24 @@
                                     <div class="contact-wrapper contact-page-form-wrapper">
                                         <div class="form-wrapper">
                                             <h3>Send Us a Message</h3>
-                                            <?php
-                                            $successMsg = $errorMsg = '';
-                                            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fname'])) {
-                                                require_once __DIR__ . '/db.php'; 
-                                                $fname = trim($_POST['fname'] ?? '');
-                                                $email = trim($_POST['email'] ?? '');
-                                                $phone = trim($_POST['phone'] ?? '');
-                                                $website = trim($_POST['website'] ?? '');
-                                                $message = trim($_POST['message'] ?? '');
-                                                if ($fname && $email && $message) {
-                                                    // Save to DB (create table contact_messages if not exists)
-                                                    $stmt = $pdo->prepare("INSERT INTO contact_messages (fname, email, phone, website, message) VALUES (?, ?, ?, ?, ?)");
-                                                    $stmt->execute([$fname, $email, $phone, $website, $message]);
-                                                    $successMsg = 'Thank you for contacting us! We will get back to you soon.';
-                                                } else {
-                                                    $errorMsg = 'Please fill in your name, email, and message.';
-                                                }
-                                            }
-                                            ?>
-                                            <?php if ($successMsg): ?>
-                                                <div class="alert alert-success"><?php echo $successMsg; ?></div>
-                                            <?php endif; ?>
-                                            <?php if ($errorMsg): ?>
-                                                <div class="alert alert-danger"><?php echo $errorMsg; ?></div>
-                                            <?php endif; ?>
-                                            <form class="contact-form" method="post">
+                                            <!-- All form handling is now via AJAX to email/email.php -->
+                                            <div id="formMsg"></div>
+                                            <form id="quoteForm" class="contact-form">
                                                 <div class="row">
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="fname" placeholder="Full Name" value="<?php echo htmlspecialchars($_POST['fname'] ?? ''); ?>">
+                                                        <input type="text" name="fname" placeholder="Full Name">
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+                                                        <input type="email" name="email" placeholder="Email">
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="phone" placeholder="Phone" value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">
+                                                        <input type="text" name="phone" placeholder="Phone">
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="website" placeholder="Website" value="<?php echo htmlspecialchars($_POST['website'] ?? ''); ?>">
+                                                        <input type="text" name="website" placeholder="Purpose">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <textarea name="message" placeholder="Message"><?php echo htmlspecialchars($_POST['message'] ?? ''); ?></textarea>
+                                                        <textarea name="message" placeholder="Message"></textarea>
                                                     </div>
                                                     <div class="btn-wrapper">
                                                         <button type="submit" class="custom-btn btn-big grad-style-ef">CONTACT US NOW</button>
@@ -65,7 +42,25 @@
                                                 </div>
                                                 <!-- End of .row -->
                                             </form>
-                                            <!-- End of .contact-form -->
+
+                                            <!-- Ajax Script running the send message -->
+                                            <script>
+                                            document.getElementById('quoteForm').onsubmit = function(e) {
+                                                e.preventDefault();
+                                                var form = e.target;
+                                                var data = new FormData(form);
+                                                fetch('email/email.php', {
+                                                    method: 'POST',
+                                                    body: data
+                                                })
+                                                .then(res => res.json())
+                                                .then(res => {
+                                                    document.getElementById('formMsg').innerHTML =
+                                                        '<div class="alert ' + (res.success ? 'alert-success' : 'alert-danger') + '">' + res.message + '</div>';
+                                                    if (res.success) form.reset();
+                                                });
+                                            };
+                                            </script>
                                         </div>
                                         <!-- End of .form-wrapper -->
                                     </div>

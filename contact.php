@@ -63,7 +63,8 @@
                         <div class="contact-wrapper contact-page-form-wrapper">
                             <div class="form-wrapper">
                                 <h3>Send Us a Message</h3>
-                                <form class="contact-form" method="post">
+                                <div id="formMsg"></div>
+                                <form class="contact-form" id="quoteForm">
                                     <div class="row">
                                         <div class="col-md-12 col-lg-6">
                                             <input type="text" name="fname" placeholder="Full Name">
@@ -78,7 +79,7 @@
                                         </div>
 
                                         <div class="col-md-12 col-lg-6">
-                                            <input type="text" name="website" placeholder="Website">
+                                            <input type="text" name="website" placeholder="Purpose">
                                         </div>
 
                                         <div class="col-md-12">
@@ -90,6 +91,25 @@
                                     </div>
                                     <!-- End of .row -->
                                 </form>
+                                
+                                            <!-- Ajax Script running the send message -->
+                                            <script>
+                                            document.getElementById('quoteForm').onsubmit = function(e) {
+                                                e.preventDefault();
+                                                var form = e.target;
+                                                var data = new FormData(form);
+                                                fetch('email/email.php', {
+                                                    method: 'POST',
+                                                    body: data
+                                                })
+                                                .then(res => res.json())
+                                                .then(res => {
+                                                    document.getElementById('formMsg').innerHTML =
+                                                        '<div class="alert ' + (res.success ? 'alert-success' : 'alert-danger') + '">' + res.message + '</div>';
+                                                    if (res.success) form.reset();
+                                                });
+                                            };
+                                            </script>
                                 <!-- End of .contact-form -->
                             </div>
                             <!-- End of .form-wrapper -->

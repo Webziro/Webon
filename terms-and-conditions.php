@@ -44,6 +44,7 @@
         <div class="inner-page-banner">
             <div class="container text-center">
                 <h1>Terms &amp; Conditions</h1>
+                <p>Last Updated: 18/9/2024 22:12</p>
             </div>
             <!-- End of .container -->
         </div>
@@ -54,29 +55,37 @@
         <section>
             <div class="container">
                 <div class="privacy-content">
-                    <h2>Name liber tempor cum soluta</h2>
-                    <p>Nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non
-                        habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt
-                        lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur
-                        mutationem consuetudium lectorum.</p>
-                    <h3>Mirum est notare quam</h3>
-                    <p>Littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula
-                        quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-                        in futurum.</p>
-                    <h3>In accumsan vestibulum sem.</h3>
-                    <p>In lacinia velit id nisi imperdiet vehicula. Proin enim erat, finibus id eleifend in, rutrum id odio.
-                        Duis viverra aliquet turpis eget vulputate. Donec porttitor lorem scelerisque, ultricies velit sit
-                        amet.
-                    </p>
-                    <h3>Nobis eleifend option congue nihil</h3>
-                    <p>Imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus
-                        legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius
-                        quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium
-                        lectorum.
-                    </p>
-                    <h3>Littera gothica, quam nunc</h3>
-                    <p>Putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta
-                        decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                    <h2>Terms &amp; Conditions</h2>
+        
+                    <p>Welcome to Webon Tech Hub. By accessing or using our website and services, you agree to comply with and be bound by the following Terms & Conditions. Please read them carefully. These terms are governed by the laws of the Federal Republic of Nigeria.</p>
+                    <h3>1. Acceptance of Terms</h3>
+                    <p>By using our website or any of our services, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions and our Privacy Policy.</p>
+                    <h3>2. Services</h3>
+                    <p>Webon Tech Hub offers web development, software development, mobile app development, branding, social media marketing, training, and related digital services. All services are subject to availability and may be modified or discontinued at our discretion.</p>
+                    <h3>3. User Responsibilities</h3>
+                    <ul>
+                        <li>You agree to use our website and services only for lawful purposes and in accordance with applicable Nigerian laws.</li>
+                        <li>You must not use our site to transmit any harmful, offensive, or illegal content.</li>
+                        <li>You are responsible for maintaining the confidentiality of your account information.</li>
+                    </ul>
+                    <h3>4. Intellectual Property</h3>
+                    <p>All content, trademarks, logos, and intellectual property on this website are owned by Webon Tech Hub or its licensors. You may not reproduce, distribute, or use any content without prior written consent.</p>
+                    <h3>5. Payment & Refunds</h3>
+                    <p>All payments for services must be made in accordance with agreed terms. Refunds are subject to our refund policy and applicable Nigerian consumer protection laws.</p>
+                    <h3>6. Limitation of Liability</h3>
+                    <p>Webon Tech Hub shall not be liable for any indirect, incidental, or consequential damages arising from the use of our website or services. Our liability is limited to the maximum extent permitted by Nigerian law.</p>
+                    <h3>7. Privacy</h3>
+                    <p>Your privacy is important to us. Please review our <a href="privacy-policy.php">Privacy Policy</a> for details on how we collect, use, and protect your information.</p>
+                    <h3>8. Third-Party Links</h3>
+                    <p>Our website may contain links to third-party sites. We are not responsible for the content or practices of these sites.</p>
+                    <h3>9. Termination</h3>
+                    <p>We reserve the right to terminate or suspend your access to our website or services at any time, without notice, for conduct that violates these Terms or applicable laws.</p>
+                    <h3>10. Changes to Terms</h3>
+                    <p>We may update these Terms & Conditions from time to time. Changes will be posted on this page, and your continued use of our site constitutes acceptance of those changes.</p>
+                    <h3>11. Governing Law</h3>
+                    <p>These Terms & Conditions are governed by and construed in accordance with the laws of the Federal Republic of Nigeria. Any disputes shall be subject to the exclusive jurisdiction of Nigerian courts.</p>
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions about these Terms & Conditions, please contact us via our contact page or at our official email address <a href="contact.php">Contact us</a></p>
                 </div>
                 <!-- End of .privacy-content -->
             </div>

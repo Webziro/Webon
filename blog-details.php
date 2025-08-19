@@ -6,9 +6,6 @@
     include 'includes/head.php'; 
 ?>
 
-
-
-
 <body class="body-bg-style-2 inner-page">
     <div class="page-wrapper">
         <svg class="bg-shape inner-page-shape-banner-right reveal-from-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

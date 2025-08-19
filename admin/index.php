@@ -23,17 +23,44 @@ if (!isset($_SESSION['admin'])) {
         .container { max-width: 600px; margin: auto; }
     </style>
 </head>
-<body>
+<body style="background: #f8f9fa;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="#">Webon Admin</a>
+    <form method="post" action="logout.php" class="d-flex ms-auto">
+      <button type="submit" class="btn btn-outline-light">Logout</button>
+    </form>
+  </div>
+</nav>
 <div class="container">
-    <h2>Admin Dashboard</h2>
-    <ul>
-        <li><a href="featured_add.php">Add Featured Project</a></li>
-        <li><a href="featured_list.php">Manage Featured Projects</a></li>
-        <!-- Add more links for other features/tables here -->
-        <li><a href="news_add.php">Add News</a></li>
-        <li><a href="news_list.php">Manage News</a></li>
-    </ul>
-    <form method="post" action="logout.php"><button type="submit">Logout</button></form>
+    <h2 class="mb-4 text-center fw-bold">Admin Dashboard</h2>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-star-fill text-warning" style="font-size:2rem;"></i>
+                    <h5 class="card-title mt-2">Featured Projects</h5>
+                    <a href="featured_add.php" class="btn btn-primary btn-sm m-1">Add Featured Project</a>
+                    <a href="featured_list.php" class="btn btn-outline-primary btn-sm m-1">Manage Featured Projects</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-newspaper text-info" style="font-size:2rem;"></i>
+                    <h5 class="card-title mt-2">News</h5>
+                    <a href="news_add.php" class="btn btn-info btn-sm m-1 text-white">Add News</a>
+                    <a href="news_list.php" class="btn btn-outline-info btn-sm m-1">Manage News</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Add more dashboard cards here as needed -->
 </div>
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </body>
 </html>

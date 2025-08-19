@@ -1,11 +1,9 @@
 <?php
+require_once __DIR__ . '/../includes/db.php';
 // email/email.php - Send contact form using PHPMailer
+require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require __DIR__ . '/PHPMailer/src/Exception.php';
-require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/PHPMailer/src/SMTP.php';
 
 $response = ["success" => false, "message" => ""];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,26 +11,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $phone = trim($_POST['phone'] ?? '');
     $website = trim($_POST['website'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+    $message = trim($_POST['message'] ?? ''); 
+    //print_r($_POST) or die();
     if ($fname && $email && $message) {
         $mail = new PHPMailer(true);
         try {
             // SMTP config (update with your SMTP details)
             $mail->isSMTP();
-            $mail->Host = 'smtp.example.com';
+            $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'your@email.com';
-            $mail->Password = 'yourpassword';
+            $mail->Username = 'thisiswebon@gmail.com';
+            $mail->Password = 'ettw snjl dldm qgbe';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
+            $mail->setFrom('thisiswebon@gmail.com', $fname);
 
-            $mail->setFrom($email, $fname);
-            $mail->addAddress('info@company.com', 'Webon Contact');
+            //$mail->setFrom($email, $fname);
+            $mail->addAddress('thisiswebon@gmail.com', 'Webon Contact');
             $mail->Subject = 'New Contact Form Submission';
             $mail->isHTML(true);
             $mail->Body = "<strong>Name:</strong> $fname<br><strong>Email:</strong> $email<br><strong>Phone:</strong> $phone<br><strong>Website:</strong> $website<br><strong>Message:</strong> $message";
             $mail->AltBody = "Name: $fname\nEmail: $email\nPhone: $phone\nWebsite: $website\nMessage: $message";
             $mail->send();
+            
+            // Save to database after sending email
+            $stmt = $pdo->prepare("INSERT INTO contact_messages (fname, email, phone, website, message) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$fname, $email, $phone, $website, $message]);
             $response["success"] = true;
             $response["message"] = "Thank you for contacting us! We will get back to you soon.";
         } catch (Exception $e) {
@@ -42,5 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response["message"] = "Please fill in your name, email, and message.";
     }
 }
-header('Content-Type: application/json');
+if (!headers_sent()) {
+    header('Content-Type: application/json');
+}
 echo json_encode($response);
+exit;
