@@ -22,4 +22,14 @@ CREATE TABLE news (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     author_id INT
 );
+
+CREATE TABLE contact_messages (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            fname VARCHAR(100),
+            email VARCHAR(100),
+            phone VARCHAR(50),
+            website VARCHAR(100),
+            message TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        );
 -- You can add more tables later for other features (e.g., users, services, etc.)

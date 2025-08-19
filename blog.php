@@ -76,11 +76,10 @@
         </div>
         <!-- End of .container -->
 
-        <div class="news-slider common-slider">
-            <div class="carousel-container equalHeightWrapper">
-                <?php
-                
-                $stmt = $pdo->query("SELECT * FROM news WHERE status = 'published' ORDER BY created_at DESC");
+    <div class="news-slider common-slider">
+        <div class="carousel-container equalHeightWrapper">
+            <?php
+                $stmt = $pdo->query("SELECT * FROM news WHERE status = 'published' AND category = 'blog' ORDER BY created_at DESC");
                 while ($row = $stmt->fetch()) {
                     $newsUrl = 'blog-details.php?id=' . $row['id'];
                     $shareUrl = urlencode('http://' . $_SERVER['HTTP_HOST'] . '/blog-details.php?id=' . $row['id']);
@@ -102,43 +101,50 @@
                     echo '</div>';
                     echo '</div>';
                 }
-                ?>
-            </div>
+            ?>
         </div>
+    </div>
     </section>
 
+        <!-- End of .news-slider -->
+
+        <!-- End of .blog -->
+
+        <!-- Press Releases Category -->
+            <!-- Press Releases Category -->
             <div class="container">
                 <div class="blog-by-category section-padding">
-                    <h2 class="text-center">Design Category</h2>
+                    <h2 class="text-center">Press Releases</h2>
                     <div class="blog-grid text-center equalHeightWrapper">
                         <div class="row">
-                           
-                            <div class="item col-md-6 col-lg-4">
-                                <a href="blog-details.php" class="news-content-block content-block">
-                                    <div class="img-container">
-                                        <img src="images/news/news-3.jpg" alt="Project image" class="img-fluid">
-                                    </div>
-                                    <!-- End of .img-container -->
-                                    <h5 class="equalHeight">
-                                        <span class="content-block__sub-title">19 May, 2018</span>
-                                        How to Become A Software Engineer?
-                                    </h5>
-                                </a>
-                                <!-- End of .featured-content-block -->
-                            </div>
-                            <!-- End of .item -->
+                           <?php
+                            $stmt = $pdo->query("SELECT * FROM news WHERE status = 'published' AND category = 'press' ORDER BY created_at DESC");
+                            while ($row = $stmt->fetch()) {
+                                $newsUrl = 'blog-details.php?id=' . $row['id'];
+                                echo '<div class="item col-md-6 col-lg-4">';
+                                echo '<a href="' . $newsUrl . '" class="news-content-block content-block">';
+                                echo '<div class="img-container">';
+                                echo '<img src="' . htmlspecialchars($row['image']) . '" alt="Webon Blog Image" class="img-fluid">';
+                                echo '</div>';
+                                echo '<h5 class="equalHeight">';
+                                echo '<span class="content-block__sub-title">' . date('j M, Y', strtotime($row['created_at'])) . '</span>';
+                                echo htmlspecialchars($row['title']);
+                                echo '</h5>';
+                                echo '</a>';
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
                         <!-- End of .row -->
-                        <a href="#" class="custom-btn btn-big grad-style-ef btn-full">LOAD MORE</a>
+                        <!-- <a href="#" class="custom-btn btn-big grad-style-ef btn-full">LOAD MORE</a> -->
                     </div>
                     <!-- End of .blog-grid -->
                 </div>
                 <!-- End of .blog-by-category -->
-
-               
             </div>
             <!-- End of .container -->
-        </section>
+                            
+    </section>
         <!-- End of .featured-projects -->
 
      

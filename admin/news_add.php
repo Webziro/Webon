@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'] ?? 'draft';
     $author_id = $_SESSION['admin_id'] ?? null;
     $tags = $_POST['tags'] ?? '';
+    $category = $_POST['category'] ?? 'blog';
     $image = '';
 
     // Handle image upload
@@ -25,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $stmt = $pdo->prepare("INSERT INTO news (title, content, image, status, author_id, tags) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$title, $content, $image, $status, $author_id, $tags]);
+    $stmt = $pdo->prepare("INSERT INTO news (title, content, image, status, author_id, tags, category) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$title, $content, $image, $status, $author_id, $tags, $category]);
     $message = 'News added successfully!';
 }
 ?>
@@ -61,6 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="mb-3">
             <label for="tags" class="form-label">Tags (comma separated)</label>
             <input type="text" name="tags" id="tags" class="form-control" placeholder="e.g. web,php,design">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select name="category" id="category" class="form-control">
+                <option value="blog">Blog</option>
+                <option value="press">Press</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="status" class="form-label">Status</label>

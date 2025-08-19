@@ -17,26 +17,47 @@
                                     <div class="contact-wrapper contact-page-form-wrapper">
                                         <div class="form-wrapper">
                                             <h3>Send Us a Message</h3>
+                                            <?php
+                                            $successMsg = $errorMsg = '';
+                                            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fname'])) {
+                                                require_once __DIR__ . '/db.php'; 
+                                                $fname = trim($_POST['fname'] ?? '');
+                                                $email = trim($_POST['email'] ?? '');
+                                                $phone = trim($_POST['phone'] ?? '');
+                                                $website = trim($_POST['website'] ?? '');
+                                                $message = trim($_POST['message'] ?? '');
+                                                if ($fname && $email && $message) {
+                                                    // Save to DB (create table contact_messages if not exists)
+                                                    $stmt = $pdo->prepare("INSERT INTO contact_messages (fname, email, phone, website, message) VALUES (?, ?, ?, ?, ?)");
+                                                    $stmt->execute([$fname, $email, $phone, $website, $message]);
+                                                    $successMsg = 'Thank you for contacting us! We will get back to you soon.';
+                                                } else {
+                                                    $errorMsg = 'Please fill in your name, email, and message.';
+                                                }
+                                            }
+                                            ?>
+                                            <?php if ($successMsg): ?>
+                                                <div class="alert alert-success"><?php echo $successMsg; ?></div>
+                                            <?php endif; ?>
+                                            <?php if ($errorMsg): ?>
+                                                <div class="alert alert-danger"><?php echo $errorMsg; ?></div>
+                                            <?php endif; ?>
                                             <form class="contact-form" method="post">
                                                 <div class="row">
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="fname" placeholder="Full Name">
+                                                        <input type="text" name="fname" placeholder="Full Name" value="<?php echo htmlspecialchars($_POST['fname'] ?? ''); ?>">
                                                     </div>
-
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="email" name="email" placeholder="Email">
+                                                        <input type="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
                                                     </div>
-
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="phone" placeholder="Phone">
+                                                        <input type="text" name="phone" placeholder="Phone" value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">
                                                     </div>
-
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="website" placeholder="Website">
+                                                        <input type="text" name="website" placeholder="Website" value="<?php echo htmlspecialchars($_POST['website'] ?? ''); ?>">
                                                     </div>
-
                                                     <div class="col-md-12">
-                                                        <textarea name="message" placeholder="Message"></textarea>
+                                                        <textarea name="message" placeholder="Message"><?php echo htmlspecialchars($_POST['message'] ?? ''); ?></textarea>
                                                     </div>
                                                     <div class="btn-wrapper">
                                                         <button type="submit" class="custom-btn btn-big grad-style-ef">CONTACT US NOW</button>
