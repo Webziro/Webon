@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html class="no-js" lang="zxx">
-<!--<![endif]-->
+<html class="no-js" lang="eng">
+
  <?php
-        // Head 
-        include 'includes/head.php'; 
-    ?>
+    include 'includes/head.php';
+    require_once 'includes/db.php';
+?>
 
 <body class="inner-page">
     <div class="page-wrapper">
@@ -42,14 +42,20 @@
 
         <!-- Header starts
     ======================================= -->
+
+    <?php
+        
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+        $stmt = $pdo->prepare("SELECT * FROM case_studies WHERE id = ?");
+        $stmt->execute([$id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row):
+    ?>
         <div class="inner-page-banner inner-banner-with-btn">
             <div class="container text-center">
-                <h1>Crypto Landing Page</h1>
-                <p>Quisque a turpis id leo luctus mollis eget vitae magna. Maecenas tristique, sapien
-                    <br>eget fermentum viverra, metus purus mattis tortor.</p>
-                <a href="#" class="custom-btn btn-big grad-style-ef">LAUNCH WEBSITE</a>
+                <h1><?php echo htmlspecialchars($row['title']); ?></h1>
+                <p><?php echo htmlspecialchars($row['description']); ?></p>
             </div>
-            <!-- End of .container -->
         </div>
         <!-- End of .banner -->
 
@@ -71,53 +77,33 @@
             <div class="container">
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6">
-                        <h2>Challeneges</h2>
-                        <p>Aenean consectetur massa quis sem volutpat, a condimentum tortor pretium. Cras id ligula consequat,
-                            sagittis nulla at, sollicitudin lorem. Orci varius natoque penatibus et magnis dis parturient
-                            montes.
-                        </p>
+                        <h2><?php echo htmlspecialchars($row['challenges_title']); ?></h2>
+                        <p><?php echo nl2br(htmlspecialchars($row['challenges_description'])); ?></p>
+                        <?php if (!empty($row['challenges_points'])): ?>
                         <ul class="common-list-items">
-                            <li>
-                                <i class="ml-tec-44-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop"></i> One design for your desktop, tab and mobile.</li>
-                            <li>
-                                <i class="ml-tec-47-disc-device-plug-computer-desktop-monitor-laptop"></i> Beautiful and modern design that makes difference.</li>
-                            <li>
-                                <i class="ml-tec-43-computer-desktop-monitor-laptop"></i> Boost your sales with strategically built user experience.</li>
+                            <li><?php echo htmlspecialchars($row['challenges_points']); ?></li>
                         </ul>
-                        <!-- End of .common-list-items -->
+                        <?php endif; ?>
                     </div>
-                    <!-- End of .col-lg-6 -->
-
                     <div class="col-lg-6 text-lg-right">
-                        <img src="images/case-study/case-study-details/case-study-details-img-1.jpg" alt="service description image" class="img-fluid">
+                        <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="service description image" class="img-fluid">
                     </div>
-                    <!-- End of .col-lg-6 -->
                 </div>
                 <!-- End of .row -->
 
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6 order-lg-2">
-                        <h2>Solutions</h2>
-                        <p>Aenean consectetur massa quis sem volutpat, a condimentum tortor pretium. Cras id ligula consequat,
-                            sagittis nulla at, sollicitudin lorem. Orci varius natoque penatibus et magnis dis parturient
-                            montes.
-                        </p>
+                        <h2><?php echo htmlspecialchars($row['solution_title']); ?></h2>
+                        <p><?php echo nl2br(htmlspecialchars($row['solution_description'])); ?></p>
+                        <?php if (!empty($row['solution_points'])): ?>
                         <ul class="common-list-items">
-                            <li>
-                                <i class="ml-tec-44-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop"></i> One design for your desktop, tab and mobile.</li>
-                            <li>
-                                <i class="ml-tec-47-disc-device-plug-computer-desktop-monitor-laptop"></i> Beautiful and modern design that makes difference.</li>
-                            <li>
-                                <i class="ml-tec-43-computer-desktop-monitor-laptop"></i> Boost your sales with strategically built user experience.</li>
+                            <li><?php echo htmlspecialchars($row['solution_points']); ?></li>
                         </ul>
-                        <!-- End of .common-list-items -->
+                        <?php endif; ?>
                     </div>
-                    <!-- End of .col-lg-6 -->
-
                     <div class="col-lg-6 text-lg-left">
-                        <img src="images/case-study/case-study-details/case-study-details-img-2.jpg" alt="service description image" class="img-fluid">
+                        <img src="<?php echo htmlspecialchars($row['solution_image']); ?>" alt="solution image" class="img-fluid">
                     </div>
-                    <!-- End of .col-lg-6 -->
                 </div>
                 <!-- End of .row -->
             </div>
@@ -129,39 +115,18 @@
     ======================================= -->
         <section class="scroreboard section-padding">
             <div class="container">
-                <h2 class="text-center">Scroreboard</h2>
-
+                <h2 class="text-center">Scoreboard</h2>
                 <div class="scroreboard-wrapper">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="scoreboard-content">
                                 <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> +2.64% sessions</div>
-                                <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> +25.47% pageviews</div>
-                                <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> +22.23% pages per session</div>
+                                    <i class="ml-symtwo-23-check-mark"></i> <?php echo htmlspecialchars($row['score_points']); ?>
+                                </div>
                             </div>
-                            <!-- End of .scroreboadr-content -->
                         </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="col-md-6">
-                            <div class="scoreboard-content">
-                                <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> +22.23% growth in sales</div>
-                                <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> -53.21% bounce rate</div>
-                                <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> +12.35% average session duration</div>
-                            </div>
-                            <!-- End of .scroreboadr-content -->
-                        </div>
-                        <!-- End of .col-md-6 -->
                     </div>
-                    <!-- End of .row -->
                 </div>
-                <!-- End of .scroreboard-wrapper -->
             </div>
             <!-- End of .container -->
         </section>
@@ -169,72 +134,7 @@
 
         <!-- featured-projects
     ======================================= -->
-        <section class="inner-page-case-studies section-padding">
-            <svg class="bg-shape shape-project reveal-from-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="779px" height="759px">
-                <defs>
-                    <linearGradient id="PSgrad_04" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
-                        <stop offset="0%" stop-color="rgb(237,247,255)" stop-opacity="1" />
-                        <stop offset="100%" stop-color="rgb(237,247,255)" stop-opacity="0" />
-                    </linearGradient>
-
-                </defs>
-                <path fill-rule="evenodd" fill="url(#PSgrad_04)" d="M111.652,578.171 L218.141,672.919 C355.910,795.500 568.207,784.561 692.320,648.484 C816.434,512.409 805.362,302.726 667.592,180.144 L561.104,85.396 C423.334,-37.184 211.037,-26.245 86.924,109.832 C-37.189,245.908 -26.118,455.590 111.652,578.171 Z"
-                />
-            </svg>
-            <div class="container">
-                <h2 class="text-center">SEO Case Studies</h2>
-
-                <div class="case-study-showcase text-center">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-1.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeightCaseStudy">
-                                    <h5>
-                                        Periscope Data
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                                        egestas.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-2.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeightCaseStudy">
-                                    <h5>
-                                        Microsoft
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                                        egestas.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
-                    </div>
-                    <!-- End of .grid -->
-                    <a href="case-studies.php" class="custom-btn btn-big grad-style-ef btn-full">DISCOVER MORE CASE STUDIES</a>
-                </div>
-                <!-- End of .template-showcase -->
-            </div>
-            <!-- End of .container -->
-        </section>
-        <!-- End of .featured-projects -->
+        <!-- You can add related case studies or other content here if needed -->
 
   
 
@@ -246,18 +146,7 @@
         <!-- End of footer -->
     </div>
     <!-- End of .page-wrapper -->
-
-    <!-- Featured-designs modal -->
-     <?php
-        include 'includes/featured-modal.php';
-    ?>
-    <!-- End of .modal -->
-
-    <!-- Get a quote Modal Starts -->
-    <?php
-        include 'includes/qoute.php';
-    ?>
-    <!-- End of .get-a-quote-modal -->
+    <?php endif; ?>
 
 
     <!-- Javascripts

@@ -56,6 +56,17 @@ if (!isset($_SESSION['admin'])) {
                 </div>
             </div>
         </div>
+
+        <div class="col-md-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-briefcase-fill text-success" style="font-size:2rem;"></i>
+                    <h5 class="card-title mt-2">Case Studies</h5>
+                    <a href="case_study_add.php" class="btn btn-success btn-sm m-1 text-white">Add Case Study</a>
+                    <a href="case_study_list.php" class="btn btn-outline-success btn-sm m-1">Manage Case Studies</a>
+                </div>
+            </div>
+        </div>
         
     </div>
     <!-- Add more dashboard cards here as needed -->

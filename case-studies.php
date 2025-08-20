@@ -3,8 +3,8 @@
 <html class="no-js" lang="zxx">
 <!--<![endif]-->
  <?php
-        // Head 
-        include 'includes/head.php'; 
+    include 'includes/db.php';
+    include 'includes/head.php'; 
     ?>
 
 <body class="body-bg-style-2 inner-page">
@@ -55,143 +55,37 @@
         <!-- case-studies starts
     ======================================= -->
         <section class="case-studies-grid-wrapper section-padding">
-            <svg class="bg-shape shape-case-study reveal-from-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="779px" height="759px">
+            <svg class="bg-shape shape-case-study reveal-from-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="779px" height="759px">
                 <defs>
                     <linearGradient id="PSgrad_03" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
                         <stop offset="0%" stop-color="rgb(237,247,255)" stop-opacity="1" />
                         <stop offset="100%" stop-color="rgb(237,247,255)" stop-opacity="0" />
                     </linearGradient>
-
                 </defs>
-                <path fill-rule="evenodd" fill="url(#PSgrad_03)" d="M111.652,578.171 L218.141,672.919 C355.910,795.500 568.207,784.561 692.320,648.484 C816.434,512.409 805.362,302.726 667.592,180.144 L561.104,85.396 C423.334,-37.184 211.037,-26.245 86.924,109.832 C-37.189,245.908 -26.118,455.590 111.652,578.171 Z"
-                />
+                <path fill-rule="evenodd" fill="url(#PSgrad_03)" d="M111.652,578.171 L218.141,672.919 C355.910,795.500 568.207,784.561 692.320,648.484 C816.434,512.409 805.362,302.726 667.592,180.144 L561.104,85.396 C423.334,-37.184 211.037,-26.245 86.924,109.832 C-37.189,245.908 -26.118,455.590 111.652,578.171 Z" />
             </svg>
             <div class="container">
                 <div class="case-study-showcase">
                     <div class="row equalHeightWrapper">
+                        <?php
+                            $stmt = $pdo->query("SELECT * FROM case_studies ORDER BY id DESC");
+                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
                         <div class="item col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
+                            <a href="case-studies-details.php?id=<?php echo $row['id']; ?>" class="case-study-content-block content-block text-left">
                                 <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-1.jpg" alt="Project image" class="img-fluid">
+                                    <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" class="img-fluid">
                                 </div>
-                                <!-- End of .img-container -->
                                 <div class="txt-content equalHeight">
-                                    <h5>
-                                        Los Marineros
-                                    </h5>
-                                    <p>Sed dapibus euismod ligula vitae gravida. Sed eget lacus lobortis eros fermentum vulputate
-                                        vitae sed urna.
-                                    </p>
+                                    <h5><?php echo htmlspecialchars($row['title']); ?></h5>
+                                    <p><?php echo htmlspecialchars($row['description']); ?></p>
                                 </div>
-                                <!-- End of .txt-content -->
                             </a>
-                            <!-- End of .featured-content-block -->
                         </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="item col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-2.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeight">
-                                    <h5>
-                                        Legacy Classic
-                                    </h5>
-                                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="item col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-3.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeight">
-                                    <h5>
-                                        CA Technologies
-                                    </h5>
-                                    <p>Vivamus placerat tempor sem, nec tempor est ultrices vitae. Donec non lectus enim.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="item col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-4.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeight">
-                                    <h5>
-                                        Google Home
-                                    </h5>
-                                    <p>Donec at ultrices sapien, nec placerat magna. Etiam nec mi in diam pellentesque vulputate.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="item col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-5.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeight">
-                                    <h5>
-                                        Periscope Data
-                                    </h5>
-                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                                        egestas.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
-
-                        <div class="item col-md-6">
-                            <a href="case-studies-details.php" class="case-study-content-block content-block text-left">
-                                <div class="img-container">
-                                    <img src="images/case-study/case-study-content/case-study-6.jpg" alt="Project image" class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <div class="txt-content equalHeight">
-                                    <h5>
-                                        Legacy Classic
-                                    </h5>
-                                    <p>Donec vitae velit non odio lobortis venenatis. In ac libero quis massa tempor facilisis
-                                        eu ac lacus.
-                                    </p>
-                                </div>
-                                <!-- End of .txt-content -->
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .col-md-6 -->
+                        <?php } ?>
                     </div>
-                    <!-- End of .grid -->
                 </div>
-                <!-- End of .template-showcase -->
             </div>
-            <!-- End of .container -->
         </section>
         <!-- End of .featured-projects -->
 
