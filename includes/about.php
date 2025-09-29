@@ -12,7 +12,7 @@
             />
         </svg>
         <div class="video-play-bg grad-style-cd">
-            <a href="https://www.youtube.com/watch?v=1iIZeIy7TqM" class="video-play-btn video-popup">
+            <a href="#" class="video-play-btn video-popup">
                 <i class="fas fa-play"></i>
             </a>
         </div>

@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // use shared slug helper
     require_once __DIR__ . '/../includes/helpers.php';
     // generate base slug and ensure uniqueness (exclude current id)
-    $baseSlug = create_slug($title);
+    $baseSlug = webon_create_slug($title);
     $slug = ensure_unique_slug($baseSlug, $pdo, $id);
     $stmt = $pdo->prepare("UPDATE news SET title=?, content=?, image=?, status=?, tags=?, slug=? WHERE id=?");
     $stmt->execute([$title, $content, $image, $status, $tags, $slug, $id]);

@@ -28,6 +28,15 @@ if (!function_exists('webon_create_slug')) {
     }
 }
 
+// Backwards-compatible wrapper for any legacy code that still calls create_slug()
+// Define it only if it doesn't already exist so we don't trigger a redeclare fatal.
+if (!function_exists('create_slug')) {
+    function create_slug($str) {
+        // Proxy to the project-prefixed implementation
+        return webon_create_slug($str);
+    }
+}
+
 // Ensure slug is unique in the news table. Appends -2, -3, ... on conflicts
 if (!function_exists('ensure_unique_slug')) {
     function ensure_unique_slug($baseSlug, $pdo, $excludeId = null) {

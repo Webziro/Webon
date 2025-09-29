@@ -20,14 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'thisiswebon@gmail.com';
-            $mail->Password = 'ettw snjl dldm qgbe';
+            $mail->Username = 'webontechhub@gmail.com';
+            $mail->Password = 'gahb occw lbbr kppj';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
-            $mail->setFrom('thisiswebon@gmail.com', $fname);
+            $mail->setFrom('webontechhub@gmail.com', $fname);
 
             //$mail->setFrom($email, $fname);
-            $mail->addAddress('thisiswebon@gmail.com', 'Webon Contact');
+            $mail->addAddress('webontechhub@gmail.com', 'Webon Contact');
             $mail->Subject = 'New Contact Form Submission';
             $mail->isHTML(true);
             $mail->Body = "<strong>Name:</strong> $fname<br><strong>Email:</strong> $email<br><strong>Phone:</strong> $phone<br><strong>Website:</strong> $website<br><strong>Message:</strong> $message";

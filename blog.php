@@ -89,7 +89,7 @@
                     }
                     // use shared slug helper
                     require_once __DIR__ . '/includes/helpers.php';
-                    $slug = create_slug($row['title']);
+                    $slug = webon_create_slug($row['title']);
                     $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
                     $shareUrl = urlencode($share_url);
                     $excerpt = trim(strip_tags($row['content']));

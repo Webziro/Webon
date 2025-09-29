@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // use shared slug helper
     require_once __DIR__ . '/../includes/helpers.php';
     // generate base slug and ensure uniqueness before inserting
-    $baseSlug = create_slug($title);
+    $baseSlug = webon_create_slug($title);
     $slug = ensure_unique_slug($baseSlug, $pdo);
     // Start views at 100 for new items
     $stmt = $pdo->prepare("INSERT INTO news (title, content, image, status, author_id, tags, category, views, slug) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");

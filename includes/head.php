@@ -57,7 +57,7 @@ if (function_exists('create_slug')) {
       "sameAs": [
         "https://www.facebook.com/webontechhub",
         "https://twitter.com/webontechhub",
-        "https://www.linkedin.com/company/webontechhub"
+        "https://www.linkedin.com/in/webontechhub"
       ]
     }
     </script>

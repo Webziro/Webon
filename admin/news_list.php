@@ -79,7 +79,7 @@ $newsList = $stmt->fetchAll();
                     </form>
                     <?php
                         // Use stored slug if available, otherwise generate from title
-                        $rowSlug = !empty($news['slug']) ? $news['slug'] : create_slug($news['title']);
+                        $rowSlug = !empty($news['slug']) ? $news['slug'] : webon_create_slug($news['title']);
                         $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $rowSlug;
                         $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
                     ?>

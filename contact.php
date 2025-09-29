@@ -134,40 +134,35 @@
 
                             <p class="address">
                                 Give us a call
-                                <a href="tel:7021231478">(702) 123-1478</a>
+                                <a href="tel:23483792208">(234) 837-92208</a>
                             </p>
                             <!-- End of .address -->
 
                             <p class="address">
                                 Send us an email
-                                <a href="mailto:info@company.com">info@company.com</a>
+                                <a href="mailto:info@usewebon.com">info@usewebon.com</a>
                             </p>
                             <!-- End of .address -->
 
                             <div class="social-icons-wrapper">
                                 <p>Follow us on</p>
-                                <ul class="social-icons">
-                                    <li>
-                                        <a href="http://www.behance.net/" target="_blank" rel="noopener">
-                                            <i class="fab fa-behance"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://twitter.com/" target="_blank" rel="noopener">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://plus.google.com/discover" target="_blank" rel="noopener">
-                                            <i class="fab fa-google-plus-g"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="http://dribbble.com/" target="_blank" rel="noopener">
-                                            <i class="fab fa-dribbble"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                         <ul class="social-icons">
+                                                <li>
+                                                    <a href="http://www.linkedin.com/in/webontechhub" target="_blank" rel="noopener">
+                                                        <i class="fab fa-linkedin"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://twitter.com/webontechhub" target="_blank" rel="noopener">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://facebook.com/webontechhub" target="_blank" rel="noopener">
+                                                        <i class="fab fa-facebook"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                 <!-- End of .social-icons -->
                             </div>
                         </div>

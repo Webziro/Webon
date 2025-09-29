@@ -28,7 +28,18 @@
         }
     }
 
-    // Fetch the news record by id or slug
+    // Check whether the 'slug' column exists in the `news` table. If it doesn't, disable slug lookup
+    $slugColumnExists = false;
+    try {
+        $colStmt = $pdo->prepare("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'news' AND COLUMN_NAME = 'slug'");
+        $colStmt->execute();
+        $slugColumnExists = (bool)$colStmt->fetchColumn();
+    } catch (Exception $e) {
+        // If the check fails for any reason, be conservative and treat slug as missing.
+        $slugColumnExists = false;
+    }
+
+    // Fetch the news record by id or slug (only if slug column exists)
     if ($id) {
         // Increment view count
         $pdo->prepare("UPDATE news SET views = views + 1 WHERE id = ?")->execute([$id]);
@@ -36,7 +47,7 @@
         $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ? AND status = 'published'");
         $stmt->execute([$id]);
         $news = $stmt->fetch();
-    } elseif ($slug) {
+    } elseif ($slug && $slugColumnExists) {
         $stmt = $pdo->prepare("SELECT * FROM news WHERE slug = ? AND status = 'published' LIMIT 1");
         $stmt->execute([$slug]);
         $news = $stmt->fetch();
@@ -134,31 +145,35 @@ $share_text_enc = urlencode($share_text);
                                         </div>
                                     </div>
                                     <div class="col-md-5">
-                                        <ul class="social-icons text-md-right">
-                                            <li>
-                                                <a href="#" onclick="openShareWindow('https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url_enc; ?>&quote=<?php echo $share_text_enc; ?>'); return false;" rel="noopener">
+                                        <?php
+                                        // Ensure helpers available for slug generation
+                                        require_once __DIR__ . '/includes/helpers.php';
+                                        $slug = isset($news['title']) ? webon_create_slug($news['title']) : 'post';
+                                        $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
+                                        $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
+                                        // Precompute share URLs
+                                        $twitter_url = 'https://twitter.com/intent/tweet?text=' . $share_text_enc . '&url=' . $share_url_enc;
+                                        $whatsapp_payload = urlencode(trim($share_text . ' ' . $share_url));
+                                        $whatsapp_url = 'https://api.whatsapp.com/send?text=' . $whatsapp_payload;
+                                        ?>
+                                        <ul class="social-icons list-inline text-md-right mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="openShareWindow('<?php echo $twitter_url; ?>'); return false;" rel="noopener" title="Share on Twitter" aria-label="Share on Twitter">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="openShareWindow('https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url_enc; ?>&quote=<?php echo $share_text_enc; ?>'); return false;" rel="noopener" title="Share on Facebook" aria-label="Share on Facebook">
                                                     <i class="fab fa-facebook"></i>
-                                                <li>
-                                                    <?php
-                                                    // use shared slug helper
-                                                    require_once __DIR__ . '/includes/helpers.php';
-                                                    $slug = isset($news['title']) ? create_slug($news['title']) : 'post';
-                                                    $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
-                                                    $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
-                                                    ?>
-                                                    <a href="#" data-copy="<?php echo $copy_payload; ?>" onclick="copyData(this); return false;" title="Copy link">
-                                                        <i class="fa fa-link"></i>
-                                                    </a>
-                                                </li>
-                                                    $str = trim($str, '-');
-                                                    $str = preg_replace('~-+~', '-', $str);
-                                                    return $str;
-                                                }
-                                                $slug = isset($news['title']) ? create_slug($news['title']) : 'post';
-                                                $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
-                                                $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
-                                                ?>
-                                                <a href="#" data-copy="<?php echo $copy_payload; ?>" onclick="copyData(this); return false;" title="Copy link">
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" onclick="openShareWindow('<?php echo $whatsapp_url; ?>'); return false;" rel="noopener" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                                                    <i class="fab fa-whatsapp"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="#" data-copy="<?php echo $copy_payload; ?>" onclick="copyData(this); return false;" title="Copy link" aria-label="Copy link">
                                                     <i class="fa fa-link"></i>
                                                 </a>
                                             </li>
