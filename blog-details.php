@@ -24,6 +24,19 @@
     include 'includes/head.php';
 ?>
 
+<?php
+// Prepare share URL and text (title + short excerpt)
+$share_url = isset($meta_url) ? $meta_url : ('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+$share_text = '';
+if (!empty($news)) {
+    $excerpt = trim(strip_tags($news['content']));
+    if (strlen($excerpt) > 200) $excerpt = substr($excerpt, 0, 197) . '...';
+    $share_text = $news['title'] . ' - ' . $excerpt;
+}
+$share_url_enc = urlencode($share_url);
+$share_text_enc = urlencode($share_text);
+?>
+
 <body class="body-bg-style-2 inner-page">
     <div class="page-wrapper">
         <svg class="bg-shape inner-page-shape-banner-right reveal-from-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -100,13 +113,23 @@
                                     <div class="col-md-5">
                                         <ul class="social-icons text-md-right">
                                             <li>
-                                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>" target="_blank" rel="noopener">
+                                                <a href="#" onclick="openShareWindow('https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url_enc; ?>&quote=<?php echo $share_text_enc; ?>'); return false;" rel="noopener">
                                                     <i class="fab fa-facebook"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']); ?>" target="_blank" rel="noopener">
+                                                <a href="#" onclick="openShareWindow('https://twitter.com/intent/tweet?text=<?php echo $share_text_enc; ?>&url=<?php echo $share_url_enc; ?>'); return false;" rel="noopener">
                                                     <i class="fab fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://wa.me/?text=<?php echo $share_text_enc . '%20' . $share_url_enc; ?>" onclick="return openShareWindow('https://wa.me/?text=<?php echo $share_text_enc . '%20' . $share_url_enc; ?>');" target="_blank" rel="noopener">
+                                                    <i class="fab fa-whatsapp"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" onclick="copyToClipboard('<?php echo $share_url; ?>'); return false;" title="Copy link">
+                                                    <i class="fa fa-link"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -295,6 +318,47 @@
     <script src="js/vendor/scrollReveal.js"></script>
     <!-- Custom js -->
     <script src="js/main.js"></script>
+    <script>
+    // Open a centered popup window for sharing. Returns false to prevent default where used.
+    function openShareWindow(url) {
+        try {
+            var width = 600, height = 450;
+            var left = (screen.width / 2) - (width / 2);
+            var top = (screen.height / 2) - (height / 2);
+            var win = window.open(url, 'shareWindow', 'toolbar=0,status=0,width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
+            if (win) {
+                win.focus();
+                return false;
+            }
+        } catch (e) {
+            // fallback to opening in new tab
+            window.open(url, '_blank');
+            return false;
+        }
+        return false;
+    }
+
+    // Copy text to clipboard and show a brief confirmation
+    function copyToClipboard(text) {
+        if (!navigator.clipboard) {
+            // fallback
+            var input = document.createElement('input');
+            document.body.appendChild(input);
+            input.value = text;
+            input.select();
+            try { document.execCommand('copy'); alert('Link copied to clipboard'); } catch (e) { prompt('Copy this link:', text); }
+            document.body.removeChild(input);
+            return false;
+        }
+        navigator.clipboard.writeText(text).then(function() {
+            // simple visual feedback
+            alert('Link copied to clipboard');
+        }, function() {
+            prompt('Copy this link:', text);
+        });
+        return false;
+    }
+    </script>
 </body>
 
 </html>
