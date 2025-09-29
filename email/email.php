@@ -16,15 +16,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($fname && $email && $message) {
         $mail = new PHPMailer(true);
         try {
-            // SMTP config (update with your SMTP details)
+            // Load SMTP credentials from includes/secrets.php if present (kept out of git)
+            $smtpDefaults = [
+                'smtp_host' => 'smtp.gmail.com',
+                'smtp_user' => 'webontechhub@gmail.com',
+                'smtp_pass' => '', // put your app password in includes/secrets.php
+                'smtp_port' => 587,
+                'smtp_secure' => 'tls',
+            ];
+            $secretsPath = __DIR__ . '/../includes/secrets.php';
+            if (file_exists($secretsPath)) {
+                $cfg = include $secretsPath;
+                if (is_array($cfg)) $smtpDefaults = array_merge($smtpDefaults, $cfg);
+            }
+
+            // SMTP config
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $smtpDefaults['smtp_host'];
             $mail->SMTPAuth = true;
-            $mail->Username = 'webontechhub@gmail.com';
-            $mail->Password = 'gahb occw lbbr kppj';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
-            $mail->setFrom('webontechhub@gmail.com', $fname);
+            $mail->Username = $smtpDefaults['smtp_user'];
+            $mail->Password = $smtpDefaults['smtp_pass'];
+            $mail->SMTPSecure = ($smtpDefaults['smtp_secure'] === 'ssl') ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = (int)$smtpDefaults['smtp_port'];
+            $mail->setFrom($smtpDefaults['smtp_user'], $fname);
 
             //$mail->setFrom($email, $fname);
             $mail->addAddress('webontechhub@gmail.com', 'Webon Contact');
