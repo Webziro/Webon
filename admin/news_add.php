@@ -26,8 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $stmt = $pdo->prepare("INSERT INTO news (title, content, image, status, author_id, tags, category) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$title, $content, $image, $status, $author_id, $tags, $category]);
+    // Start views at 100 for new items
+    $stmt = $pdo->prepare("INSERT INTO news (title, content, image, status, author_id, tags, category, views) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$title, $content, $image, $status, $author_id, $tags, $category, 100]);
     $message = 'News added successfully!';
 }
 ?>

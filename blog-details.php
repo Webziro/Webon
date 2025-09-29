@@ -2,8 +2,26 @@
 
 <html class="no-js" lang="zxx">
 <?php
-    // Head 
-    include 'includes/head.php'; 
+    // Fetch news and prepare meta tags before including head
+    require_once 'includes/db.php';
+    $id = $_GET['id'] ?? null;
+    $news = null;
+    if ($id) {
+        // Increment view count
+        $pdo->prepare("UPDATE news SET views = views + 1 WHERE id = ?")->execute([$id]);
+        // Fetch news
+        $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ? AND status = 'published'");
+        $stmt->execute([$id]);
+        $news = $stmt->fetch();
+    }
+
+    // Default meta values
+    $meta_title = isset($news['title']) ? $news['title'] : 'Webon Tech Hub || Best Website and App Development Services';
+    $meta_description = isset($news['content']) ? substr(strip_tags($news['content']), 0, 160) : 'Webon Tech Hub || Best Website and App Development Services';
+    $meta_image = isset($news['image']) && $news['image'] ? ('https://' . $_SERVER['HTTP_HOST'] . '/' . ltrim($news['image'], '/')) : 'https://www.webontechhub.com/images/brand-logo.png';
+    $meta_url = isset($id) ? ('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) : 'https://' . $_SERVER['HTTP_HOST'] . '/';
+
+    include 'includes/head.php';
 ?>
 
 <body class="body-bg-style-2 inner-page">
@@ -76,7 +94,7 @@
                                                 <i class="ml-fac-21-man-male-avatar-fac-e"></i>Admin</a>
                                             <a href="#">
                                                 <i class="ml-tim-35-calander-date-schedule-clock-time-alarm-watch"></i><?php echo date('j M, Y', strtotime($news['created_at'])); ?></a>
-                                            <span class="badge bg-secondary">Views: <?php echo $news['views'] + 999; ?></span>
+                                            <span class="badge bg-secondary">Views: <?php echo (int)$news['views']; ?></span>
                                         </div>
                                     </div>
                                     <div class="col-md-5">

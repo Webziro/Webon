@@ -66,7 +66,7 @@ $newsList = $stmt->fetchAll();
                         </select>
                     </form>
                 </td>
-                <td><?php echo $news['views']; ?></td>
+                <td><?php echo (int)$news['views']; ?></td>
                 <td><?php echo date('j M, Y', strtotime($news['created_at'])); ?></td>
                 <td>
                     <a href="news_edit.php?id=<?php echo $news['id']; ?>" class="btn btn-sm btn-primary">Edit</a>

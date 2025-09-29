@@ -46,7 +46,7 @@
                 </div>
                 <!-- End of .col-md-4 -->
 
-                <div class="col-lg-4 col-md-6 m-b-30">
+                <!-- <div class="col-lg-4 col-md-6 m-b-30">
                     <a href="search-engine-optimization.html" target="_blank" rel="noopener" class="service-box text-center content-block">
                         <div class="box-bg grad-style-cd"></div>
                         <span class="icon-container grad-style-cd-light">
@@ -56,11 +56,12 @@
                         <p>We optimize your website to rank higher in search engine results, driving organic traffic and increasing visibility.
                             Our SEO strategies are tailored to your business goals, ensuring long-term success in the digital landscape.</p>
                     </a>
-                    <!-- End of .service-box -->
-                </div>
+                   
+                </div> -->
+                 <!-- End of .service-box -->
                 <!-- End of .col-md-4 -->
 
-                <div class="col-lg-4 col-md-6 m-b-30">
+                <!-- <div class="col-lg-4 col-md-6 m-b-30">
                     <a href="pay-per-click.html" target="_blank" rel="noopener" class="service-box text-center content-block">
                         <div class="box-bg grad-style-ab"></div>
                         <span class="icon-container grad-style-ab-light">
@@ -70,10 +71,11 @@
                         <p>Branding is more than just a logo; it's about creating a memorable identity for your business. 
                             We help you define your brand's voice, vision, values and identity consistency across all platforms and touchpoints. </p>
                     </a>
-                    <!-- End of .service-box -->
-                </div>
+                   
+                </div> -->
+                 <!-- End of .service-box -->
                 <!-- End of .col-md-4 -->
-
+<!-- 
                 <div class="col-lg-4 col-md-6 m-b-30">
                     <a href="social-media-marketing.html" target="_blank" rel="noopener" class="service-box text-center content-block">
                         <div class="box-bg grad-style-ef"></div>
@@ -84,8 +86,9 @@
                         <p>Utilize the power of social media to connect with your audience, build brand awareness, and drive engagement.
                             Our social media marketing strategies are designed to create meaningful interactions and foster community around your brand.</p>
                     </a>
-                    <!-- End of .service-box -->
-                </div>
+                    
+                </div> -->
+                <!-- End of .service-box -->
                 <!-- End of .col-md-4 -->
             </div>
             <!-- End of .row -->

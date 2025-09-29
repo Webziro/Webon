@@ -3,9 +3,9 @@
     <!-- Basic metas
     ======================================== -->
     <meta charset="utf-8">
-    <meta name="author" content="Webon Tech Hub || Best Website and App Development Services">
-    <meta name="description" content="Webon Tech Hub || Best Website and App Development Services">
-    <meta name="keywords" content="Webon Tech Hub || Best Website and App Development Services">
+  <meta name="author" content="Webon Tech Hub || Best Website and App Development Services">
+  <meta name="description" content="<?php echo isset($meta_description) ? htmlspecialchars($meta_description) : 'Webon Tech Hub || Best Website and App Development Services'; ?>">
+  <meta name="keywords" content="Webon Tech Hub || Best Website and App Development Services">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.webontechhub.com/" />
@@ -14,17 +14,17 @@
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Webon Tech Hub || Best Website and App Development Services" />
-    <meta property="og:description" content="Webon Tech Hub || Best Website and App Development Services" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.webontechhub.com/" />
-    <meta property="og:image" content="https://www.webontechhub.com/images/brand-logo.png" />
+  <meta property="og:title" content="<?php echo isset($meta_title) ? htmlspecialchars($meta_title) : 'Webon Tech Hub || Best Website and App Development Services'; ?>" />
+  <meta property="og:description" content="<?php echo isset($meta_description) ? htmlspecialchars($meta_description) : 'Webon Tech Hub || Best Website and App Development Services'; ?>" />
+  <meta property="og:type" content="<?php echo isset($meta_type) ? htmlspecialchars($meta_type) : 'website'; ?>" />
+  <meta property="og:url" content="<?php echo isset($meta_url) ? htmlspecialchars($meta_url) : 'https://www.webontechhub.com/'; ?>" />
+  <meta property="og:image" content="<?php echo isset($meta_image) ? htmlspecialchars($meta_image) : 'https://www.webontechhub.com/images/brand-logo.png'; ?>" />
 
     <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Webon Tech Hub || Best Website and App Development Services" />
-    <meta name="twitter:description" content="Webon Tech Hub || Best Website and App Development Services" />
-    <meta name="twitter:image" content="https://www.webontechhub.com/images/brand-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<?php echo isset($meta_title) ? htmlspecialchars($meta_title) : 'Webon Tech Hub || Best Website and App Development Services'; ?>" />
+  <meta name="twitter:description" content="<?php echo isset($meta_description) ? htmlspecialchars($meta_description) : 'Webon Tech Hub || Best Website and App Development Services'; ?>" />
+  <meta name="twitter:image" content="<?php echo isset($meta_image) ? htmlspecialchars($meta_image) : 'https://www.webontechhub.com/images/brand-logo.png'; ?>" />
 
     <!-- Structured Data: Organization Schema -->
     <script type="application/ld+json">
