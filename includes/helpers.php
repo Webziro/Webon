@@ -1,13 +1,18 @@
 <?php
 // includes/helpers.php - Shared helper functions
+// Prevent double inclusion even if the file is referenced using different relative paths
+if (defined('WEBON_HELPERS_LOADED')) {
+    return;
+}
+define('WEBON_HELPERS_LOADED', true);
 // Diagnostic: log when helpers.php is included and whether create_slug already exists
 if (function_exists('create_slug')) {
     error_log('[helpers.php] create_slug() already exists when including helpers.php.');
 } else {
     error_log('[helpers.php] create_slug() not yet defined; defining now.');
 }
-if (!function_exists('create_slug')) {
-    function create_slug($str) {
+if (!function_exists('webon_create_slug')) {
+    function webon_create_slug($str) {
         $str = strtolower(trim($str));
         // replace non letter or digits by -
         $str = preg_replace('~[^\pL\d]+~u', '-', $str);

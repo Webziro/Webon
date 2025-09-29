@@ -88,7 +88,7 @@
                         $share_url = rtrim($SITE_URL, '/') . '/' . ltrim($share_url, '/');
                     }
                     // use shared slug helper
-                    require_once 'includes/helpers.php';
+                    require_once __DIR__ . '/includes/helpers.php';
                     $slug = create_slug($row['title']);
                     $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
                     $shareUrl = urlencode($share_url);

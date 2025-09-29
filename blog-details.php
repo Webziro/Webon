@@ -141,7 +141,7 @@ $share_text_enc = urlencode($share_text);
                                                 <li>
                                                     <?php
                                                     // use shared slug helper
-                                                    require_once 'includes/helpers.php';
+                                                    require_once __DIR__ . '/includes/helpers.php';
                                                     $slug = isset($news['title']) ? create_slug($news['title']) : 'post';
                                                     $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
                                                     $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);

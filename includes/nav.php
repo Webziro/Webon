@@ -19,8 +19,8 @@
                             Services
                         </a>
                         <div class="custom-dropdown-menu">
-                            <a class="dropdown-item" href="software-dev.php">Software Develoment</a>
-                            <a class="dropdown-item" href="website-dev.php">Website Develpment</a>
+                            <a class="dropdown-item" href="software-development.php">Software Develoment</a>
+                            <a class="dropdown-item" href="website-development.php">Website Develpment</a>
                             <a class="dropdown-item" href="mobile-app-development.php">Mobile App Design</a>
                             <a class="dropdown-item" href="training.php">Training</a>
                             <!-- <a class="dropdown-item" href="logo-and-branding.php">Logo &amp; Branding</a>

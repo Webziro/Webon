@@ -7,8 +7,8 @@ if (!isset($_SESSION['admin'])) {
 }
 require_once '../includes/db.php';
 // Helpers and config for slug and SITE_URL
-require_once '../includes/helpers.php';
-require_once '../includes/config.php';
+require_once __DIR__ . '/../includes/helpers.php';
+require_once __DIR__ . '/../includes/config.php';
 
 // Handle delete
 if (isset($_POST['delete_id'])) {

@@ -6,6 +6,17 @@ if (file_exists(__DIR__ . '/config.php')) {
   // Fallback
   if (!isset($SITE_URL)) $SITE_URL = 'https://www.webontechhub.com';
 }
+// Debug: log included files and create_slug presence when head is included
+error_log("[head.php] Included files count: " . count(get_included_files()));
+foreach (get_included_files() as $f) {
+    error_log("[head.php] included: " . $f);
+}
+if (function_exists('create_slug')) {
+    $rf = new ReflectionFunction('create_slug');
+    error_log('[head.php] create_slug defined in ' . $rf->getFileName() . ' on line ' . $rf->getStartLine());
+} else {
+    error_log('[head.php] create_slug is NOT defined at head include time');
+}
 ?>
 <head>
 
