@@ -91,5 +91,27 @@ $newsList = $stmt->fetchAll();
     </table>
     <a href="index.php" class="btn btn-secondary">Back to Dashboard</a>
 </div>
+</div>
+    <!-- Copy helpers -->
+    <script>
+    function copyToClipboard(text) {
+        if (!navigator.clipboard) {
+            var input = document.createElement('input');
+            document.body.appendChild(input);
+            input.value = text;
+            input.select();
+            try { document.execCommand('copy'); alert('Link copied to clipboard'); } catch (e) { prompt('Copy this link:', text); }
+            document.body.removeChild(input);
+            return false;
+        }
+        navigator.clipboard.writeText(text).then(function() { alert('Link copied to clipboard'); }, function() { prompt('Copy this link:', text); });
+        return false;
+    }
+    function copyData(el) {
+        var txt = el.getAttribute('data-copy') || el.dataset.copy || '';
+        if (txt) return copyToClipboard(txt);
+        return false;
+    }
+    </script>
 </body>
 </html>

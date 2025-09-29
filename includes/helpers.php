@@ -1,5 +1,11 @@
 <?php
 // includes/helpers.php - Shared helper functions
+// Diagnostic: log when helpers.php is included and whether create_slug already exists
+if (function_exists('create_slug')) {
+    error_log('[helpers.php] create_slug() already exists when including helpers.php.');
+} else {
+    error_log('[helpers.php] create_slug() not yet defined; defining now.');
+}
 if (!function_exists('create_slug')) {
     function create_slug($str) {
         $str = strtolower(trim($str));
