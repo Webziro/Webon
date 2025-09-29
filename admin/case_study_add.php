@@ -94,22 +94,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="mb-3">
             <label>Description</label>
-            <textarea name="description" class="form-control"></textarea>
+            <textarea name="description" class="form-control" rows="8" style="resize:vertical; min-height:200px;"></textarea>
         </div>
         <hr>
         <h4>Challenges</h4>
         <div class="mb-3">
             <label>Challenges Title</label>
-            <input type="text" name="challenges_title" class="form-control">
+            <input type="text" name="challenges_title" class="form-control" placeholder="Ex: The following problems were observed">
         </div>
         <div class="mb-3">
             <label>Challenges Description</label>
-            <textarea name="challenges_description" class="form-control"></textarea>
+            <textarea name="challenges_description" class="form-control" rows="8" style="resize:vertical; min-height:200px;"></textarea>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label>Challenges Points</label>
-            <input type="text" name="challenges_points" class="form-control">
-        </div>
+            <textarea name="challenges_points" class="form-control"  rows="8" style="resize:vertical; min-height:200px;"></textarea>
+        </div> -->
         <hr>
         <h4>Solution</h4>
         <div class="mb-3">
@@ -118,11 +118,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="mb-3">
             <label>Solution Description</label>
-            <textarea name="solution_description" class="form-control"></textarea>
+            <textarea name="solution_description" class="form-control" rows="8" style="resize:vertical; min-height:200px;"></textarea>
         </div>
         <div class="mb-3">
             <label>Solution Points</label>
-            <input type="text" name="solution_points" class="form-control">
+            <input type="text" name="solution_points" class="form-control" placeholder="List few points">
         </div>
         <div class="mb-3">
             <label>Solution Image</label>
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h4>Score Board</h4>
         <div class="mb-3">
             <label>Score Points</label>
-            <input type="text" name="score_points" class="form-control">
+            <textarea name="score_points" class="form-control" rows="8" style="resize:vertical; min-height:200px;"></textarea>
         </div>
         <button type="submit" class="btn btn-success">Add Case Study</button>
     </form>

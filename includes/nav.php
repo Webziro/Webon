@@ -23,8 +23,8 @@
                             <a class="dropdown-item" href="website-dev.php">Website Develpment</a>
                             <a class="dropdown-item" href="mobile-app-development.php">Mobile App Design</a>
                             <a class="dropdown-item" href="training.php">Training</a>
-                            <a class="dropdown-item" href="logo-and-branding.php">Logo &amp; Branding</a>
-                            <a class="dropdown-item" href="social-media-marketing.php">Social Media Marketing</a>
+                            <!-- <a class="dropdown-item" href="logo-and-branding.php">Logo &amp; Branding</a>
+                            <a class="dropdown-item" href="social-media-marketing.php">Social Media Marketing</a> -->
                         </div>
                     </li>
                     <li class="nav-item">

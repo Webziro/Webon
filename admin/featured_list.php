@@ -16,6 +16,26 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
+// Handle hide/unhide toggle
+if (isset($_GET['toggle'])) {
+    $id = (int)$_GET['toggle'];
+    // Ensure column exists (best-effort, ignore failure)
+    try {
+        $pdo->exec("ALTER TABLE featured_projects ADD COLUMN IF NOT EXISTS is_hidden TINYINT(1) NOT NULL DEFAULT 0");
+    } catch (Exception $e) {
+        // Some MySQL versions may not support IF NOT EXISTS; ignore errors
+    }
+    // Get current state
+    $stmt = $pdo->prepare('SELECT is_hidden FROM featured_projects WHERE id = ?');
+    $stmt->execute([$id]);
+    $current = $stmt->fetchColumn();
+    $new = ($current == 1) ? 0 : 1;
+    $stmt = $pdo->prepare('UPDATE featured_projects SET is_hidden = ? WHERE id = ?');
+    $stmt->execute([$new, $id]);
+    header('Location: featured_list.php');
+    exit;
+}
+
 $stmt = $pdo->query('SELECT * FROM featured_projects ORDER BY created_at DESC');
 $projects = $stmt->fetchAll();
 ?>
@@ -41,10 +61,19 @@ $projects = $stmt->fetchAll();
                 <td>
                     <a href="featured_edit.php?id=<?php echo $p['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
                     <a href="featured_list.php?delete=<?php echo $p['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Delete this project?');">Delete</a>
+                    <?php
+                    // Show Hide/Unhide button based on is_hidden column (if missing, assume visible)
+                    $is_hidden = isset($p['is_hidden']) ? (int)$p['is_hidden'] : 0;
+                    if ($is_hidden) {
+                        echo '<a href="featured_list.php?toggle=' . $p['id'] . '" class="btn btn-warning btn-sm" onclick="return confirm(\'Unhide this project?\');">Unhide</a>';
+                    } else {
+                        echo '<a href="featured_list.php?toggle=' . $p['id'] . '" class="btn btn-success btn-sm" onclick="return confirm(\'Hide this project?\');">Hide</a>';
+                    }
+                    ?>
                 </td>
             </tr>
         <?php endforeach; ?>
-        </tbody>
+        </tbody> 
     </table>
     <a href="index.php">Back to Dashboard</a>
 </div>

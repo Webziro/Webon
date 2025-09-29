@@ -19,7 +19,7 @@
                             <h2>Take Your Business <br>Online Today </h2>
                             <p>Over 80% of your customers are online, take advantage this and launch an online presence. </p>
                             <div class="btn-container">
-                                <a href="case-studies-details.html" class="custom-btn btn-big grad-style-ab">SEE THE CASE STUDY</a>
+                                <a href="case-studies-details.php" class="custom-btn btn-big grad-style-ab">SEE THE CASE STUDY</a>
                                 <a href="https://www.youtube.com/watch?v=1iIZeIy7TqM" class="video-play-btn video-popup">
                                     <i class="fas fa-play"></i>
                                 </a>
@@ -33,7 +33,7 @@
                                 mattis ac sed orci. Nunc suscipit blandit diam pretium. Ut risus justo, feugiat vel posuere
                                 in. </p>
                             <div class="btn-container">
-                                <a href="case-studies-details.html" class="custom-btn btn-big grad-style-ab">SEE THE CASE STUDY</a>
+                                <a href="case-studies-details.php" class="custom-btn btn-big grad-style-ab">SEE THE CASE STUDY</a>
                                 <a href="https://www.youtube.com/watch?v=1iIZeIy7TqM" class="video-play-btn video-popup">
                                     <i class="fas fa-play"></i>
                                 </a>
@@ -47,7 +47,7 @@
                                 mattis ac sed orci. Nunc suscipit blandit diam pretium. Ut risus justo, feugiat vel posuere
                                 in. </p>
                             <div class="btn-container">
-                                <a href="case-studies-details.html" class="custom-btn btn-big grad-style-ab">SEE THE CASE STUDY</a>
+                                <a href="case-studies-details.php" class="custom-btn btn-big grad-style-ab">SEE THE CASE STUDY</a>
                                 <a href="https://www.youtube.com/watch?v=1iIZeIy7TqM" class="video-play-btn video-popup">
                                     <i class="fas fa-play"></i>
                                 </a>

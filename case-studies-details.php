@@ -77,13 +77,33 @@
             <div class="container">
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6">
+                <h3 class="align-text-center">Problem</h3>
                         <h2><?php echo htmlspecialchars($row['challenges_title']); ?></h2>
                         <p><?php echo nl2br(htmlspecialchars($row['challenges_description'])); ?></p>
-                        <?php if (!empty($row['challenges_points'])): ?>
-                        <ul class="common-list-items">
-                            <li><?php echo htmlspecialchars($row['challenges_points']); ?></li>
-                        </ul>
-                        <?php endif; ?>
+                        <?php
+                        if (!empty($row['challenges_points'])) {
+                            $challenges_points = trim($row['challenges_points']);
+                            $challenges_points = str_replace(["\r\n", "\r"], "\n", $challenges_points);
+                            $lines = explode("\n", $challenges_points);
+                            $all_points = [];
+                            foreach ($lines as $line) {
+                                $subpoints = explode(',', $line);
+                                foreach ($subpoints as $subpoint) {
+                                    $subpoint = trim($subpoint);
+                                    if ($subpoint !== '') {
+                                        $all_points[] = $subpoint;
+                                    }
+                                }
+                            }
+                            if (count($all_points)) {
+                                echo '<ul class="common-list-items">';
+                                foreach ($all_points as $point) {
+                                    echo '<li>' . htmlspecialchars($point) . '</li>';
+                                }
+                                echo '</ul>';
+                            }
+                        }
+                        ?>
                     </div>
                     <div class="col-lg-6 text-lg-right">
                         <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="service description image" class="img-fluid">
@@ -93,13 +113,33 @@
 
                 <div class="row align-items-center image-with-description-block">
                     <div class="col-lg-6 order-lg-2">
-                        <h2><?php echo htmlspecialchars($row['solution_title']); ?></h2>
-                        <p><?php echo nl2br(htmlspecialchars($row['solution_description'])); ?></p>
-                        <?php if (!empty($row['solution_points'])): ?>
-                        <ul class="common-list-items">
-                            <li><?php echo htmlspecialchars($row['solution_points']); ?></li>
-                        </ul>
-                        <?php endif; ?>
+                    <h3 class="text-left">Solution</h3>
+                        <p><?php echo htmlspecialchars($row['solution_title']); ?></p>
+                        <p ><?php echo nl2br(htmlspecialchars($row['solution_description'])); ?></p>
+                        <?php
+                        if (!empty($row['solution_points'])) {
+                            $solution_points = trim($row['solution_points']);
+                            $solution_points = str_replace(["\r\n", "\r"], "\n", $solution_points);
+                            $lines = explode("\n", $solution_points);
+                            $all_points = [];
+                            foreach ($lines as $line) {
+                                $subpoints = explode(',', $line);
+                                foreach ($subpoints as $subpoint) {
+                                    $subpoint = trim($subpoint);
+                                    if ($subpoint !== '') {
+                                        $all_points[] = $subpoint;
+                                    }
+                                }
+                            }
+                            if (count($all_points)) {
+                                echo '<ul class="common-list-items">';
+                                foreach ($all_points as $point) {
+                                    echo '<li>' . htmlspecialchars($point) . '</li>';
+                                }
+                                echo '</ul>';
+                            }
+                        }
+                        ?>
                     </div>
                     <div class="col-lg-6 text-lg-left">
                         <img src="<?php echo htmlspecialchars($row['solution_image']); ?>" alt="solution image" class="img-fluid">
@@ -120,9 +160,33 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="scoreboard-content">
-                                <div>
-                                    <i class="ml-symtwo-23-check-mark"></i> <?php echo htmlspecialchars($row['score_points']); ?>
-                                </div>
+                                <?php
+                                $score_points = trim($row['score_points']);
+                                if (!empty($score_points)) {
+                                    // Normalize all line breaks to \n
+                                    $score_points = str_replace(["\r\n", "\r"], "\n", $score_points);
+                                    // Split by newline first
+                                    $lines = explode("\n", $score_points);
+                                    $all_points = [];
+                                    foreach ($lines as $line) {
+                                        // Now split each line by comma
+                                        $subpoints = explode('.', $line);
+                                        foreach ($subpoints as $subpoint) {
+                                            $subpoint = trim($subpoint);
+                                            if ($subpoint !== '') {
+                                                $all_points[] = $subpoint;
+                                            }
+                                        }
+                                    }
+                                    if (count($all_points)) {
+                                        echo '<ul class="common-list-items">';
+                                        foreach ($all_points as $point) {
+                                            echo '<li><i class="ml-symtwo-23-check-mark"></i> ' . htmlspecialchars($point) . '</li>';
+                                        }
+                                        echo '</ul>';
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
