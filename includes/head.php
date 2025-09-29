@@ -1,3 +1,12 @@
+<?php
+// Load central config (defines SITE_URL and $SITE_URL)
+if (file_exists(__DIR__ . '/config.php')) {
+  include __DIR__ . '/config.php';
+} else {
+  // Fallback
+  if (!isset($SITE_URL)) $SITE_URL = 'https://www.webontechhub.com';
+}
+?>
 <head>
 
     <!-- Basic metas

@@ -38,8 +38,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $stmt = $pdo->prepare("UPDATE news SET title=?, content=?, image=?, status=?, tags=? WHERE id=?");
-    $stmt->execute([$title, $content, $image, $status, $tags, $id]);
+    // create slug helper
+    function create_slug($str) {
+        $str = strtolower(trim($str));
+        $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
+        $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
+        $str = preg_replace('~[^-\w]+~', '', $str);
+        $str = trim($str, '-');
+        $str = preg_replace('~-+~', '-', $str);
+        return $str;
+    }
+    $slug = create_slug($title);
+    $stmt = $pdo->prepare("UPDATE news SET title=?, content=?, image=?, status=?, tags=?, slug=? WHERE id=?");
+    $stmt->execute([$title, $content, $image, $status, $tags, $slug, $id]);
     $message = 'News updated successfully!';
     // Refresh data
     $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ?");

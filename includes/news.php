@@ -17,7 +17,7 @@
                 $stmt = $pdo->query("SELECT * FROM news WHERE status = 'published' ORDER BY created_at DESC");
                 while ($row = $stmt->fetch()) {
                     $newsUrl = 'blog-details.php?id=' . $row['id'];
-                    $shareUrl = urlencode('http://' . $_SERVER['HTTP_HOST'] . '/blog-details.php?id=' . $row['id']);
+                    $shareUrl = urlencode(rtrim($SITE_URL, '/') . '/blog-details.php?id=' . $row['id']);
                     echo '<div class="item">';
                     
                     echo '<a href="' . $newsUrl . '" class="news-content-block content-block">';

@@ -82,7 +82,28 @@
                 $stmt = $pdo->query("SELECT * FROM news WHERE status = 'published' AND category = 'blog' ORDER BY created_at DESC");
                 while ($row = $stmt->fetch()) {
                     $newsUrl = 'blog-details.php?id=' . $row['id'];
-                    $share_url = 'https://' . $_SERVER['HTTP_HOST'] . '/blog-details.php?id=' . $row['id'];
+                    $share_url = rtrim($SITE_URL, '/') . '/blog-details.php?id=' . $row['id'];
+                    // Defensive: if for any reason $share_url isn't absolute, prefix with SITE_URL
+                    if (strpos($share_url, 'http') !== 0) {
+                        $share_url = rtrim($SITE_URL, '/') . '/' . ltrim($share_url, '/');
+                    }
+                    // create a slug for copy-only URL (domain/path/topic-slug)
+                    function create_slug($str) {
+                        $str = strtolower(trim($str));
+                        // replace non letter or digits by -
+                        $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
+                        // transliterate
+                        $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
+                        // remove unwanted characters
+                        $str = preg_replace('~[^-\w]+~', '', $str);
+                        // trim
+                        $str = trim($str, '-');
+                        // remove duplicate -
+                        $str = preg_replace('~-+~', '-', $str);
+                        return $str;
+                    }
+                    $slug = create_slug($row['title']);
+                    $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
                     $shareUrl = urlencode($share_url);
                     $excerpt = trim(strip_tags($row['content']));
                     if (strlen($excerpt) > 200) $excerpt = substr($excerpt, 0, 197) . '...';
@@ -107,7 +128,10 @@
                     echo '<i class="fab fa-twitter"></i></a>';
                     echo ' <a href="https://wa.me/?text=' . $share_text . '%20' . $shareUrl . '" onclick="return openShareWindow(\'https://wa.me/?text=' . $share_text . '%20' . $shareUrl . '\');" class="btn btn-sm btn-success" style="margin-left:8px;">';
                     echo '<i class="fab fa-whatsapp"></i></a>';
-                    echo ' <a href="#" onclick="copyToClipboard(\'' . $share_url . '\'); return false;" class="btn btn-sm btn-secondary" style="margin-left:8px;">Copy</a>';
+                    $excerpt_plain = strip_tags($row['content']);
+                    if (strlen($excerpt_plain) > 200) $excerpt_plain = substr($excerpt_plain, 0, 197) . '...';
+                    $copy_text = htmlspecialchars($slug_url, ENT_QUOTES);
+                    echo ' <a href="#" data-copy="' . $copy_text . '" onclick="copyData(this); return false;" class="btn btn-sm btn-secondary" style="margin-left:8px;">Copy</a>';
                     echo '</div>';
                     echo '</div>';
                 }
@@ -234,6 +258,11 @@
             return false;
         }
         navigator.clipboard.writeText(text).then(function() { alert('Link copied to clipboard'); }, function() { prompt('Copy this link:', text); });
+        return false;
+    }
+    function copyData(el) {
+        var txt = el.getAttribute('data-copy') || el.dataset.copy || '';
+        if (txt) return copyToClipboard(txt);
         return false;
     }
     </script>

@@ -18,15 +18,18 @@
     // Default meta values
     $meta_title = isset($news['title']) ? $news['title'] : 'Webon Tech Hub || Best Website and App Development Services';
     $meta_description = isset($news['content']) ? substr(strip_tags($news['content']), 0, 160) : 'Webon Tech Hub || Best Website and App Development Services';
-    $meta_image = isset($news['image']) && $news['image'] ? ('https://' . $_SERVER['HTTP_HOST'] . '/' . ltrim($news['image'], '/')) : 'https://www.webontechhub.com/images/brand-logo.png';
-    $meta_url = isset($id) ? ('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']) : 'https://' . $_SERVER['HTTP_HOST'] . '/';
+    $meta_image = isset($news['image']) && $news['image'] ? (rtrim($SITE_URL, '/') . '/' . ltrim($news['image'], '/')) : rtrim($SITE_URL, '/') . '/images/brand-logo.png';
+    $meta_url = isset($id) ? (rtrim($SITE_URL, '/') . $_SERVER['REQUEST_URI']) : rtrim($SITE_URL, '/') . '/';
 
     include 'includes/head.php';
 ?>
 
 <?php
 // Prepare share URL and text (title + short excerpt)
-$share_url = isset($meta_url) ? $meta_url : ('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    $share_url = isset($meta_url) ? $meta_url : (rtrim($SITE_URL, '/') . $_SERVER['REQUEST_URI']);
+    if (strpos($share_url, 'http') !== 0) {
+        $share_url = rtrim($SITE_URL, '/') . '/' . ltrim($share_url, '/');
+    }
 $share_text = '';
 if (!empty($news)) {
     $excerpt = trim(strip_tags($news['content']));
@@ -128,7 +131,22 @@ $share_text_enc = urlencode($share_text);
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" onclick="copyToClipboard('<?php echo $share_url; ?>'); return false;" title="Copy link">
+                                                <?php
+                                                // create slug from title and copy only domain/slug
+                                                function create_slug($str) {
+                                                    $str = strtolower(trim($str));
+                                                    $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
+                                                    $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
+                                                    $str = preg_replace('~[^-\w]+~', '', $str);
+                                                    $str = trim($str, '-');
+                                                    $str = preg_replace('~-+~', '-', $str);
+                                                    return $str;
+                                                }
+                                                $slug = isset($news['title']) ? create_slug($news['title']) : 'post';
+                                                $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
+                                                $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
+                                                ?>
+                                                <a href="#" data-copy="<?php echo $copy_payload; ?>" onclick="copyData(this); return false;" title="Copy link">
                                                     <i class="fa fa-link"></i>
                                                 </a>
                                             </li>
@@ -356,6 +374,11 @@ $share_text_enc = urlencode($share_text);
         }, function() {
             prompt('Copy this link:', text);
         });
+        return false;
+    }
+    function copyData(el) {
+        var txt = el.getAttribute('data-copy') || el.dataset.copy || '';
+        if (txt) return copyToClipboard(txt);
         return false;
     }
     </script>
