@@ -38,17 +38,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // create slug helper
-    function create_slug($str) {
-        $str = strtolower(trim($str));
-        $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
-        $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
-        $str = preg_replace('~[^-\w]+~', '', $str);
-        $str = trim($str, '-');
-        $str = preg_replace('~-+~', '-', $str);
-        return $str;
-    }
-    $slug = create_slug($title);
+    // use shared slug helper
+    require_once '../includes/helpers.php';
+    // generate base slug and ensure uniqueness (exclude current id)
+    $baseSlug = create_slug($title);
+    $slug = ensure_unique_slug($baseSlug, $pdo, $id);
     $stmt = $pdo->prepare("UPDATE news SET title=?, content=?, image=?, status=?, tags=?, slug=? WHERE id=?");
     $stmt->execute([$title, $content, $image, $status, $tags, $slug, $id]);
     $message = 'News updated successfully!';

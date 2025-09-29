@@ -87,21 +87,8 @@
                     if (strpos($share_url, 'http') !== 0) {
                         $share_url = rtrim($SITE_URL, '/') . '/' . ltrim($share_url, '/');
                     }
-                    // create a slug for copy-only URL (domain/path/topic-slug)
-                    function create_slug($str) {
-                        $str = strtolower(trim($str));
-                        // replace non letter or digits by -
-                        $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
-                        // transliterate
-                        $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
-                        // remove unwanted characters
-                        $str = preg_replace('~[^-\w]+~', '', $str);
-                        // trim
-                        $str = trim($str, '-');
-                        // remove duplicate -
-                        $str = preg_replace('~-+~', '-', $str);
-                        return $str;
-                    }
+                    // use shared slug helper
+                    require_once 'includes/helpers.php';
                     $slug = create_slug($row['title']);
                     $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
                     $shareUrl = urlencode($share_url);

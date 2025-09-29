@@ -26,17 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // create slug helper
-    function create_slug($str) {
-        $str = strtolower(trim($str));
-        $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
-        $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
-        $str = preg_replace('~[^-\w]+~', '', $str);
-        $str = trim($str, '-');
-        $str = preg_replace('~-+~', '-', $str);
-        return $str;
-    }
-    $slug = create_slug($title);
+    // use shared slug helper
+    require_once '../includes/helpers.php';
+    // generate base slug and ensure uniqueness before inserting
+    $baseSlug = create_slug($title);
+    $slug = ensure_unique_slug($baseSlug, $pdo);
     // Start views at 100 for new items
     $stmt = $pdo->prepare("INSERT INTO news (title, content, image, status, author_id, tags, category, views, slug) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$title, $content, $image, $status, $author_id, $tags, $category, 100, $slug]);

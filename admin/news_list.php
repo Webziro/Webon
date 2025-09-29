@@ -6,6 +6,9 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 require_once '../includes/db.php';
+// Helpers and config for slug and SITE_URL
+require_once '../includes/helpers.php';
+require_once '../includes/config.php';
 
 // Handle delete
 if (isset($_POST['delete_id'])) {
@@ -74,6 +77,13 @@ $newsList = $stmt->fetchAll();
                         <input type="hidden" name="delete_id" value="<?php echo $news['id']; ?>">
                         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                     </form>
+                    <?php
+                        // Use stored slug if available, otherwise generate from title
+                        $rowSlug = !empty($news['slug']) ? $news['slug'] : create_slug($news['title']);
+                        $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $rowSlug;
+                        $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
+                    ?>
+                    <a href="#" data-copy="<?php echo $copy_payload; ?>" onclick="copyData(this); return false;" class="btn btn-sm btn-secondary">Copy</a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -3,9 +3,32 @@
 <html class="no-js" lang="zxx">
 <?php
     // Fetch news and prepare meta tags before including head
+    // Include config to have SITE_URL available when building absolute urls
+    require_once 'includes/config.php';
     require_once 'includes/db.php';
-    $id = $_GET['id'] ?? null;
+
+    // Determine id (query param) or slug (path info like /blog-details.php/your-slug)
+    $id = isset($_GET['id']) && $_GET['id'] ? (int)$_GET['id'] : null;
+    $slug = null;
     $news = null;
+
+    if (!$id) {
+        // Prefer PATH_INFO if provided by the server
+        if (!empty($_SERVER['PATH_INFO'])) {
+            $slug = ltrim($_SERVER['PATH_INFO'], '/');
+        } else {
+            // Fallback: parse REQUEST_URI and extract the segment after the script name
+            $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            $scriptName = $_SERVER['SCRIPT_NAME'] ?? '/blog-details.php';
+            if (strpos($requestUri, $scriptName) === 0) {
+                $after = substr($requestUri, strlen($scriptName));
+                $after = ltrim($after, '/');
+                if ($after !== '') $slug = $after;
+            }
+        }
+    }
+
+    // Fetch the news record by id or slug
     if ($id) {
         // Increment view count
         $pdo->prepare("UPDATE news SET views = views + 1 WHERE id = ?")->execute([$id]);
@@ -13,6 +36,15 @@
         $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ? AND status = 'published'");
         $stmt->execute([$id]);
         $news = $stmt->fetch();
+    } elseif ($slug) {
+        $stmt = $pdo->prepare("SELECT * FROM news WHERE slug = ? AND status = 'published' LIMIT 1");
+        $stmt->execute([$slug]);
+        $news = $stmt->fetch();
+        if ($news) {
+            $id = $news['id'];
+            // Increment view count for the resolved id
+            $pdo->prepare("UPDATE news SET views = views + 1 WHERE id = ?")->execute([$id]);
+        }
     }
 
     // Default meta values
@@ -69,19 +101,7 @@ $share_text_enc = urlencode($share_text);
    
       <!-- blog-post-details starts -->
         <a href="#">
-        <?php
-        require_once 'includes/db.php';
-        $id = $_GET['id'] ?? null;
-        $news = null;
-        if ($id) {
-            // Increment view count
-            $pdo->prepare("UPDATE news SET views = views + 1 WHERE id = ?")->execute([$id]);
-            // Fetch news
-            $stmt = $pdo->prepare("SELECT * FROM news WHERE id = ? AND status = 'published'");
-            $stmt->execute([$id]);
-            $news = $stmt->fetch();
-        }
-        ?>
+        <?php // news already resolved above (by id or slug) ?>
         <div class="blog-post-details">
             <div class="container">
                 <svg class="bg-shape shape-blog-details reveal-from-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -118,26 +138,18 @@ $share_text_enc = urlencode($share_text);
                                             <li>
                                                 <a href="#" onclick="openShareWindow('https://www.facebook.com/sharer/sharer.php?u=<?php echo $share_url_enc; ?>&quote=<?php echo $share_text_enc; ?>'); return false;" rel="noopener">
                                                     <i class="fab fa-facebook"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" onclick="openShareWindow('https://twitter.com/intent/tweet?text=<?php echo $share_text_enc; ?>&url=<?php echo $share_url_enc; ?>'); return false;" rel="noopener">
-                                                    <i class="fab fa-twitter"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://wa.me/?text=<?php echo $share_text_enc . '%20' . $share_url_enc; ?>" onclick="return openShareWindow('https://wa.me/?text=<?php echo $share_text_enc . '%20' . $share_url_enc; ?>');" target="_blank" rel="noopener">
-                                                    <i class="fab fa-whatsapp"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <?php
-                                                // create slug from title and copy only domain/slug
-                                                function create_slug($str) {
-                                                    $str = strtolower(trim($str));
-                                                    $str = preg_replace('~[^\\pL\\d]+~u', '-', $str);
-                                                    $str = iconv('utf-8', 'us-ascii//TRANSLIT', $str);
-                                                    $str = preg_replace('~[^-\w]+~', '', $str);
+                                                <li>
+                                                    <?php
+                                                    // use shared slug helper
+                                                    require_once 'includes/helpers.php';
+                                                    $slug = isset($news['title']) ? create_slug($news['title']) : 'post';
+                                                    $slug_url = rtrim($SITE_URL, '/') . '/blog-details.php/' . $slug;
+                                                    $copy_payload = htmlspecialchars($slug_url, ENT_QUOTES);
+                                                    ?>
+                                                    <a href="#" data-copy="<?php echo $copy_payload; ?>" onclick="copyData(this); return false;" title="Copy link">
+                                                        <i class="fa fa-link"></i>
+                                                    </a>
+                                                </li>
                                                     $str = trim($str, '-');
                                                     $str = preg_replace('~-+~', '-', $str);
                                                     return $str;
