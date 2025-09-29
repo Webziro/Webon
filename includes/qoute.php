@@ -48,6 +48,11 @@
                                             (function() {
                                                 var form = document.getElementById('quoteForm');
                                                 var formMsg = document.getElementById('formMsg');
+                                                // Make formMsg an ARIA live region for screen readers
+                                                if (formMsg) {
+                                                    formMsg.setAttribute('role', 'status');
+                                                    formMsg.setAttribute('aria-live', 'polite');
+                                                }
                                                 var submitBtn = form.querySelector('button[type="submit"]');
 
                                                 function setButtonLoading(loading) {
@@ -56,28 +61,47 @@
                                                     submitBtn.classList.toggle('disabled', loading);
                                                     submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
                                                     if (loading) {
-                                                        submitBtn.dataset.origText = submitBtn.innerHTML;
-                                                        submitBtn.innerHTML = 'Sending...';
-                                                    } else if (submitBtn.dataset.origText) {
-                                                        submitBtn.innerHTML = submitBtn.dataset.origText;
-                                                        delete submitBtn.dataset.origText;
+                                                        submitBtn.dataset.origHtml = submitBtn.innerHTML;
+                                                        // Add a small spinner and text
+                                                        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
+                                                    } else if (submitBtn.dataset.origHtml) {
+                                                        submitBtn.innerHTML = submitBtn.dataset.origHtml;
+                                                        delete submitBtn.dataset.origHtml;
                                                     }
                                                 }
 
                                                 function showMessage(message, success) {
-                                                    formMsg.innerHTML = '<div class="alert ' + (success ? 'alert-success' : 'alert-danger') + '">' + message + '</div>';
+                                                    if (!formMsg) return;
+                                                    formMsg.innerHTML = '<div class="alert ' + (success ? 'alert-success' : 'alert-danger') + '" tabindex="-1">' + message + '</div>';
+                                                    // focus the message for visibility
+                                                    var alertEl = formMsg.querySelector('.alert');
+                                                    if (alertEl) {
+                                                        try { alertEl.focus(); } catch (e) {}
+                                                    }
+                                                }
+
+                                                function validateForm() {
+                                                    var name = form.querySelector('input[name="fname"]').value.trim();
+                                                    var email = form.querySelector('input[name="email"]').value.trim();
+                                                    var message = form.querySelector('textarea[name="message"]').value.trim();
+                                                    if (!name) { showMessage('Please enter your name.', false); return false; }
+                                                    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { showMessage('Please enter a valid email address.', false); return false; }
+                                                    if (!message) { showMessage('Please enter a message.', false); return false; }
+                                                    return true;
                                                 }
 
                                                 form.onsubmit = function(e) {
                                                     e.preventDefault();
+                                                    // client-side validation
+                                                    if (!validateForm()) return;
                                                     var data = new FormData(form);
                                                     setButtonLoading(true);
+                                                    showMessage('Sending your message…', true);
                                                     fetch('email/email.php', {
                                                         method: 'POST',
                                                         body: data
                                                     })
                                                     .then(function(res) {
-                                                        // Ensure we always try to parse JSON
                                                         return res.json().catch(function() { return { success: false, message: 'Unexpected server response' }; });
                                                     })
                                                     .then(function(res) {
@@ -89,7 +113,7 @@
                                                             try {
                                                                 var modalEl = document.getElementById('get-a-quote-modal');
                                                                 var bsModal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
-                                                                setTimeout(function() { bsModal.hide(); }, 2200);
+                                                                setTimeout(function() { bsModal.hide(); }, 2000);
                                                             } catch (e) {
                                                                 // ignore if bootstrap isn't available
                                                             }
