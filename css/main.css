@@ -67,27 +67,27 @@ Date Created: July 16, 2018
 -------------------------------------- -- */
 /* Classes for colors */
 .theme-color-a {
-  color: #5ce1e6;
+  color: #033e8a;
 }
 
 .theme-color-b {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .theme-color-c {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .theme-color-d {
-  color: #5ce1e6;
+  color: #033e8a;
 }
 
 .theme-color-e {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .theme-color-f {
-  color: #5ce1e6;
+  color: #033e8a;
 }
 
 .typo-color-a {
@@ -104,27 +104,27 @@ Date Created: July 16, 2018
 
 /* Classes for background-color */
 .theme-bg-a {
-  background-color: #5ce1e6;
+  background-color: #033e8a;
 }
 
 .theme-bg-b {
-  background-color: #0097b2;
+  background-color: #033e8a;
 }
 
 .theme-bg-c {
-  background-color: #0097b2;
+  background-color: #033e8a;
 }
 
 .theme-bg-d {
-  background-color: #5ce1e6;
+  background-color: #033e8a;
 }
 
 .theme-bg-e {
-  background-color: #0097b2;
+  background-color: #033e8a;
 }
 
 .theme-bg-f {
-  background-color: #5ce1e6;
+  background-color: #033e8a;
 }
 
 .typo-bg-a {
@@ -140,17 +140,17 @@ Date Created: July 16, 2018
 }
 
 .grad-style-ab, .case-study .video-play-btn, .inner-page::before, .icon-container.grad-style-ab-light::after {
-  background-image: linear-gradient(45deg, #0097b2, #5ce1e6);
+  background-image: linear-gradient(45deg, #033e8a, #033e8a);
   background-repeat: repeat-x;
 }
 
 .grad-style-cd, .pricing-block:hover .icon-container::after, .pricing-block:hover .custom-btn, .small-agency-case-study::before, .small-agency-case-study::after, .featured-item::before, .body-bg-style-2.inner-page::before, .banner::before, .banner::after, .navbar-toggler span, .icon-container.grad-style-cd-light::after {
-  background-image: linear-gradient(45deg, #5ce1e6, #0097b2);
+  background-image: linear-gradient(45deg, #033e8a, #033e8a);
   background-repeat: repeat-x;
 }
 
 .grad-style-ef, .small-agency-case-study::after, .body-bg-style-3.inner-page::before, .icon-container.grad-style-ef-light::after {
-  background-image: linear-gradient(45deg, #5ce1e6, #0097b2);
+  background-image: linear-gradient(45deg, #033e8a, #033e8a);
   background-repeat: repeat-x;
 }
 
@@ -170,13 +170,13 @@ Date Created: July 16, 2018
 }
 
 .txt-grad-ab {
-  background: linear-gradient(45deg, #0097b2, #5ce1e6);
+  background: linear-gradient(45deg, #033e8a, #033e8a);
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .txt-grad-cd, .pricing-block:hover .price {
-  background: linear-gradient(45deg, #5ce1e6, #0097b2);
+  background: linear-gradient(45deg, #033e8a, #033e8a);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -185,7 +185,7 @@ Date Created: July 16, 2018
 .nav-tabs .visited .nav-link span, .nav-tabs .visited .nav-link::after, .nav-tabs .nav-item:not(:last-child) .nav-link:hover::after, .nav-tabs .nav-item:not(:last-child) .nav-link.active::after, .nav-tabs .nav-link:hover i,
 .nav-tabs .nav-link:hover span, .nav-tabs .nav-link.active i,
 .nav-tabs .nav-link.active span, .common-list-items li i {
-  background: linear-gradient(45deg, #5ce1e6, #0097b2);
+  background: linear-gradient(45deg, #033e8a, #033e8a);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -443,7 +443,7 @@ button:focus {
 }
 
 a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .modal.show .modal-dialog {
@@ -1500,12 +1500,12 @@ p {
   line-height: 100px;
   text-align: center;
   padding-left: 7px;
-  color: #0097b2;
+  color: #033e8a;
   transition: all 0.5s;
   outline: none;
 }
 .video-play-btn:hover {
-  color: #0097b2;
+  color: #033e8a;
   box-shadow: 0 2px 50px rgba(0, 0, 0, 0.1);
 }
 .video-play-btn svg {
@@ -1514,7 +1514,7 @@ p {
 
 .text-only-btn {
   display: inline-block;
-  color: #0097b2;
+  color: #033e8a;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.5s;
@@ -1564,7 +1564,7 @@ input:hover, input:focus,
 textarea:hover,
 textarea:focus {
   outline: none;
-  border-color: #0097b2;
+  border-color: #033e8a;
 }
 
 /* -- Header css
@@ -1682,7 +1682,7 @@ textarea:focus {
   border-radius: 0;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-top: 2px solid #0097b2;
+  border-top: 2px solid #033e8a;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition-timing-function: linear !important;
 }
@@ -1884,7 +1884,7 @@ h1 {
   bottom: 1px;
   left: 1px;
   border-radius: 12px;
-  background-image: linear-gradient(100deg, #5ce1e6, #0097b2);
+  background-image: linear-gradient(100deg, #033e8a, #033e8a);
   background-repeat: repeat-x;
   outline: 1px solid transparent;
   transition: all 0.5s;
@@ -2228,7 +2228,7 @@ h1 {
   height: 0;
   border-left: 0px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 15px solid #0097b2;
+  border-top: 15px solid #033e8a;
 }
 .featured-item .img-container::after {
   transform: rotateX(180deg);
@@ -2408,7 +2408,7 @@ h1 {
   display: inline-block;
   border-radius: 50%;
   text-align: center;
-  color: #0097b2;
+  color: #033e8a;
   position: absolute;
   top: 7px;
   left: 0;
@@ -2464,7 +2464,7 @@ h1 {
   line-height: 3rem;
   text-align: center;
   width: 3rem;
-  color: #5ce1e6;
+  color: #033e8a;
   background: #f2f1ff;
   border-radius: 50%;
 }
@@ -2558,7 +2558,7 @@ h1 {
 }
 .team-grid h5 a:hover {
   text-decoration: none;
-  color: #0097b2;
+  color: #033e8a;
 }
 .team-grid h5 span {
   padding-top: 1.1rem;
@@ -2608,7 +2608,7 @@ h1 {
   transition: all 0.5s;
 }
 .team-modal .social-icons li a {
-  color: #0097b2;
+  color: #033e8a;
   background: transparent;
 }
 
@@ -2785,7 +2785,7 @@ h1 {
 }
 .blog-details .social-icons a {
   background: #f1efff;
-  color: #0097b2;
+  color: #033e8a;
 }
 .blog-details img {
   margin: 3.9rem 0 5.8rem;
@@ -2808,7 +2808,7 @@ h1 {
   vertical-align: -2px;
 }
 .post-info a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .article-inner-title {
@@ -2843,7 +2843,7 @@ h1 {
   margin-right: 0.5rem;
 }
 .blog-details-prev-next a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 /* -- Newsletter css
@@ -2986,7 +2986,7 @@ h1 {
 }
 .contact-info.floating-contact-info .social-icons a {
   background: #f1efff;
-  color: #0097b2;
+  color: #033e8a;
 }
 .contact-info.floating-contact-info .social-icons a:hover {
   color: #fff;
@@ -3046,12 +3046,12 @@ h1 {
   font-size: 2.4rem;
   line-height: 3.4rem;
   font-weight: 900;
-  color: #5ce1e6;
+  color: #033e8a;
   text-decoration: none;
   transition: all 0.5s;
 }
 .address a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .map-wrapper {
@@ -3162,7 +3162,7 @@ h1 {
   transition: all 0.5s;
 }
 .footer-content p a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .small-agency-footer {
@@ -3214,10 +3214,10 @@ h1 {
   transition: all 0.5s;
 }
 .small-agency-footer .footer-nav-wrapper .footer-menu li a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 .small-agency-footer .footer-nav-wrapper .footer-menu li.active a {
-  color: #0097b2;
+  color: #033e8a;
 }
 .small-agency-footer .footer-bottom {
   background-color: #0e1f33;
@@ -3235,7 +3235,7 @@ h1 {
   color: #69798d;
 }
 .small-agency-footer .footer-bottom p a:hover {
-  color: #0097b2;
+  color: #033e8a;
 }
 
 .footer-logo img {
@@ -3268,7 +3268,7 @@ h1 {
   .nav-tabs .nav-item:not(:last-child) .nav-link:hover::after,
 .nav-tabs .nav-item:not(:last-child) .nav-link.active::after,
 .service-tab-nav .visited .nav-link::after {
-    color: #0097b2;
+    color: #033e8a;
   }
 }
 /* -- IE hacks -- */
@@ -3288,17 +3288,17 @@ h1 {
 .filter-button:hover,
 .filter-button.is-checked {
     background: transparent;
-    color: #0097b2;
+    color: #033e8a;
   }
 
   .txt-grad-cd, .pricing-block:hover .price {
-    color: #0097b2;
+    color: #033e8a;
     background: transparent;
     transition: all 0.3s;
   }
 
   .txt-grad-ab {
-    color: #5ce1e6;
+    color: #033e8a;
     background: transparent;
     transition: all 0.3s;
   }
@@ -3307,7 +3307,7 @@ h1 {
 .nav-tabs .nav-link:hover span, .nav-tabs .nav-link.active i,
 .nav-tabs .nav-link.active span, .nav-tabs .nav-item:not(:last-child) .nav-link:hover::after, .nav-tabs .nav-item:not(:last-child) .nav-link.active::after, .nav-tabs .visited .nav-link i,
 .nav-tabs .visited .nav-link span, .nav-tabs .visited .nav-link::after, .filter-button:hover, .filter-button.is-checked {
-    color: #0097b2;
+    color: #033e8a;
     background: transparent;
     transition: all 0.3s;
   }
@@ -3330,12 +3330,12 @@ h1 {
 
   .filter-button:hover,
 .filter-button.is-checked {
-    color: #0097b2;
+    color: #033e8a;
     background: transparent;
   }
 
   .pricing-block:hover .price {
-    color: #0097b2;
+    color: #033e8a;
     background: transparent;
   }
 

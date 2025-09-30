@@ -15,7 +15,7 @@
             <div class="banner-content">
                 <p style="color: black; font-size: 13px; font-family: sans-serif; display: flex; align-items: center; gap: 8px;">
                     <span class="animated-icon" style="display:inline-block; width:20px; height:20px;">
-                        <svg viewBox="0 0 24 24" fill="#0097b2" width="20" height="20" style="display:block;">
+                        <svg viewBox="0 0 24 24" fill="#033e8a" width="20" height="20" style="display:block;">
                             <circle cx="12" cy="12" r="10" />
                             <path d="M12 6v6l4 2" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
