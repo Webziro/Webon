@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $smtpDefaults = [
                 'smtp_host' => 'smtp.gmail.com',
                 'smtp_user' => 'webontechhub@gmail.com',
-                'smtp_pass' => '', // put your app password in includes/secrets.php
+                'smtp_pass' => '', // the real password is in secrets.php
                 'smtp_port' => 587,
                 'smtp_secure' => 'tls',
             ];

@@ -51,64 +51,7 @@
 
         <!-- featured-projects
     ======================================= -->
-        <section class="featured-projects section-padding">
-            <div class="container">
-                <h2 class="text-center">Some of our Projects</h2>
-                <div class="featured-project-showcase text-center">
-                    <div class="row equalHeightWrapper">
-                        <div class="grid-item col-md-6 col-lg-4 featured-item">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured/project-featured-1.jpg" alt="Project image"
-                                        class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Web Design</span>
-                                    Creative Web Design
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .grid-item -->
-                        <div class="grid-item col-md-6 col-lg-4 featured-item">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured/project-featured-2.jpg" alt="Project image"
-                                        class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">Web Design</span>
-                                    Complex Deshboard
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .grid-item -->
-                        <div class="grid-item col-md-6 col-lg-4 featured-item">
-                            <a href="#" class="featured-content-block content-block" data-bs-toggle="modal" data-bs-target="#featured-project-modal">
-                                <div class="img-container">
-                                    <img src="images/featured-projects/featured/project-featured-3.jpg" alt="Project image"
-                                        class="img-fluid">
-                                </div>
-                                <!-- End of .img-container -->
-                                <h5 class="equalHeight">
-                                    <span class="content-block__sub-title">App Design</span>
-                                    Food App Design
-                                </h5>
-                            </a>
-                            <!-- End of .featured-content-block -->
-                        </div>
-                        <!-- End of .grid-item -->
-                    </div>
-                    <!-- End of .grid -->
-                    <a href="#" class="custom-btn btn-big grad-style-ef btn-full">DISCOVER MORE WORKS</a>
-                </div>
-                <!-- End of .template-showcase -->
-            </div>
-            <!-- End of .container -->
-        </section>
+       
         <!-- End of .featured-projects -->
 
         <!-- featured-projects

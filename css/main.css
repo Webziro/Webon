@@ -1610,7 +1610,6 @@ textarea:focus {
 }
 .navbar-nav .nav-item .nav-link:not(.custom-btn):hover, .navbar-nav .nav-item .nav-link:not(.custom-btn).active {
   color: #172b43; 
-  /* color: #fff; */
 }
 
 .navbar-nav .nav-item .nav-link {
