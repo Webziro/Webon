@@ -40,6 +40,23 @@ if (!function_exists('create_slug')) {
 // Ensure slug is unique in the news table. Appends -2, -3, ... on conflicts
 if (!function_exists('ensure_unique_slug')) {
     function ensure_unique_slug($baseSlug, $pdo, $excludeId = null) {
+        // Defensive: check whether the 'slug' column exists before running queries that reference it.
+        $slugColumnExists = false;
+        try {
+            $colStmt = $pdo->prepare("SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'news' AND COLUMN_NAME = 'slug'");
+            $colStmt->execute();
+            $slugColumnExists = (bool)$colStmt->fetchColumn();
+        } catch (Exception $e) {
+            // Any failure means we should be conservative and treat the column as missing
+            $slugColumnExists = false;
+        }
+
+        if (! $slugColumnExists) {
+            // Slug column not present yet (migration not applied). Return a safe, short unique slug
+            // by appending a short unique suffix to avoid collisions.
+            return $baseSlug . '-' . substr(str_replace('.', '', uniqid('', true)), -6);
+        }
+
         $slug = $baseSlug;
         $i = 2;
         while (true) {
