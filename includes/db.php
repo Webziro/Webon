@@ -5,6 +5,8 @@ $db   = 'webon_app';
 $user = 'root'; // Change if you use a different MySQL user
 $pass = '';
 $charset = 'utf8mb4';
+$pass = '';
+
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -18,3 +20,4 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 ?>
+<!-- db.php - Database connection for webon-app -->
