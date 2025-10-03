@@ -5,15 +5,6 @@
  <?php
     include 'includes/head.php';
     require_once 'includes/db.php';
-
-    // Prevent direct/manual visits without an id parameter.
-    // This page should only be reached by clicking a case study item which provides an id.
-    $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-    if ($id <= 0) {
-        // Redirect back to case studies listing
-        header('Location: case-studies.php');
-        exit;
-    }
 ?>
 
 <body class="inner-page">
