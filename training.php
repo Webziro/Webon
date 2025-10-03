@@ -83,7 +83,7 @@
                             <li>
                                 <i class="ml-tec-43-computer-desktop-monitor-laptop"></i>Expert instructors with industry experience</li>
                         </ul>
-                        <a href="https://wa.link/nt3ma1" target="_blank" class="text-only-btn">Book a Call 
+                        <a href="https://app.cal.com/webontechhub" target="_blank" class="text-only-btn">Book a Call 
                                         <i class="ml-symone-2-arrow-left-right-up-down-increase-decrease"></i>
                                     </a>
                         <!-- End of .common-list-items -->

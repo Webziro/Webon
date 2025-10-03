@@ -1,8 +1,11 @@
 <section class="services">
         <div class="container">
             <div class="row justify-content-center">
+                
+                <h4 style="text-align:center">We offer a wide range of digital services</h4>
+                <p style="text-align:center" >Call us for innovative solutions that drive success.</p>
                 <div class="col-lg-4 col-md-6 m-b-30">
-                    <a href="logo-and-branding.html" target="_blank" rel="noopener" class="service-box text-center content-block">
+                    <a href="software-development.php" target="_blank" rel="noopener" class="service-box text-center content-block">
                         <div class="box-bg grad-style-cd"></div>
                         <span class="icon-container grad-style-cd-light">
                             <i class="ml-des-62-Precision-compasses-graphics-design-tool-interface txt-grad-cd"></i>
@@ -18,7 +21,7 @@
                 <!-- End of .col-md-4 -->
 
                 <div class="col-lg-4 col-md-6 m-b-30">
-                    <a href="website-design.html" target="_blank" rel="noopener" class="service-box text-center content-block">
+                    <a href="website-development.php" target="_blank" rel="noopener" class="service-box text-center content-block">
                         <div class="box-bg grad-style-ab"></div>
                         <span class="icon-container grad-style-ab-light">
                             <i class="ml-des-57-upload-download-sync-application-device-mobile-computer txt-grad-ab"></i>
@@ -33,7 +36,7 @@
                 <!-- End of .col-md-4 -->
 
                 <div class="col-lg-4 col-md-6 m-b-30">
-                    <a href="mobile-app-development.html" target="_blank" rel="noopener" class="service-box text-center content-block">
+                    <a href="mobile-app-development.php" target="_blank" rel="noopener" class="service-box text-center content-block">
                         <div class="box-bg grad-style-ef"></div>
                         <span class="icon-container grad-style-ef-light">
                             <i class="ml-tec-45-responsive-mobile-phone-tablet-computer-desktop-monitor-laptop txt-grad-ef"></i>

@@ -28,7 +28,7 @@
                                                         <input type="email" name="email" placeholder="Email">
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
-                                                        <input type="text" name="phone" placeholder="Phone">
+                                                        <input type="text" name="phone" placeholder="Whatsapp Number">
                                                     </div>
                                                     <div class="col-md-12 col-lg-6">
                                                         <input type="text" name="website" placeholder="Purpose">

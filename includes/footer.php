@@ -33,6 +33,12 @@
 
                         <ul class="social-icons">
 
+                          <li>
+                                <a href="https://wa.link/nt3ma1" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </li>
+
                             <li>
                                 <a href="facebook.com/Webontechhub" target="_blank" rel="noopener">
                                     <i class="fab fa-facebook"></i>
@@ -40,12 +46,12 @@
                             </li>
 
                             <li>
-                                <a href="http://linkedin.com/" target="_blank" rel="noopener">
+                                <a href="http://linkedin.com/in/webontechhub" target="_blank" rel="noopener">
                                     <i class="fab fa-linkedin"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://twitter.com/" target="_blank" rel="noopener">
+                                <a href="http://twitter.com/webontechhub" target="_blank" rel="noopener">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
@@ -54,6 +60,11 @@
                                     <i class="fab fa-google-plus-g"></i>
                                 </a>
                             </li>
+                            <li>
+
+                                <a href="https://www.tiktok.com/@webontechhub" target="_blank" rel="noopener">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
                             
                         </ul>
                         <!-- End of .social-icons -->
@@ -77,12 +88,12 @@
                                     <a href="training.php">Training</a>
                                     
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="logo-and-branding.php">Logo and Branding</a>
-                                </li>
-                                <li>
+                                </li> -->
+                                <!-- <li>
                                     <a href="social-media-marketing.php">Social Media Marketing</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </nav>
                     </div>

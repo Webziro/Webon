@@ -86,7 +86,7 @@
                             <li>
                                 <i class="ml-tec-43-computer-desktop-monitor-laptop"></i>Secured Apps with advanced features.</li>
                         </ul>
-                        <a href="#" class="text-only-btn">Book a Call 
+                        <a href="https://app.cal.com/webontechhub" target="_blank" class="text-only-btn">Book a Call 
                                         <i class="ml-symone-2-arrow-left-right-up-down-increase-decrease"></i>
                                     </a>
                         <!-- End of .common-list-items -->

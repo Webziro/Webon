@@ -22,11 +22,12 @@
                     </span>
                     <span>*Transform Your Business in 30 Days</span>
                 </p>
-                <h1>Your Expert Web and 
+                <h1>Your Expert in Web and 
                     <br>Software Solutions</h1>
                 <p class="section-subheading">Elevate your online presence with solutions that convert
                     <br> and guarantee real results in 30 days.
                 </p>
+                <a href="https://app.cal.com/webontechhub" target="_blank" class="custom-btn btn-big grad-style-ef page-scroll">Book a Call</a>
                 <a href="portfolio.php" class="custom-btn btn-big grad-style-ef page-scroll">See Our Portfolio</a>
             </div>
             <!-- End of .banner-content -->
